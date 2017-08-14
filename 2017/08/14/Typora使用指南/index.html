@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Typora,markdown," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Typora用法介绍 #####1. 有序列表：有序列表的使用很简单，可以在英文半角的状态下输入数字”1.”然后enter键   萝卜 白菜   #####2.无序列表：可在英文半角的状态下输入”-“和一个空格然后enter键   萝卜 白菜#####3.代码块英文状态下输入”12345678&amp;gt; ``` java&amp;gt; public static void main(String []ar">
+<meta name="keywords" content="Typora,markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typora使用指南.md">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/Typora使用指南/index.html">
+<meta property="og:site_name" content="MyBlog">
+<meta property="og:description" content="Typora用法介绍 #####1. 有序列表：有序列表的使用很简单，可以在英文半角的状态下输入数字”1.”然后enter键   萝卜 白菜   #####2.无序列表：可在英文半角的状态下输入”-“和一个空格然后enter键   萝卜 白菜#####3.代码块英文状态下输入”12345678&amp;gt; ``` java&amp;gt; public static void main(String []ar">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="c:/Users/tiantian/Desktop/travis-ci.png">
+<meta property="og:updated_time" content="2017-08-14T14:22:06.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Typora使用指南.md">
+<meta name="twitter:description" content="Typora用法介绍 #####1. 有序列表：有序列表的使用很简单，可以在英文半角的状态下输入数字”1.”然后enter键   萝卜 白菜   #####2.无序列表：可在英文半角的状态下输入”-“和一个空格然后enter键   萝卜 白菜#####3.代码块英文状态下输入”12345678&amp;gt; ``` java&amp;gt; public static void main(String []ar">
+<meta name="twitter:image" content="c:/Users/tiantian/Desktop/travis-ci.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/14/Typora使用指南/"/>
+
+
+
+
+
+  <title>Typora使用指南.md | MyBlog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MyBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">imxintian</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/14/Typora使用指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="imxintian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Typora使用指南.md</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-08-14T22:18:43+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Typora用法介绍</p>
+<p>#####1. 有序列表：有序列表的使用很简单，可以在英文半角的状态下输入数字”1.”然后enter键</p>
+<blockquote>
+<ol>
+<li>萝卜</li>
+<li>白菜</li>
+</ol>
+</blockquote>
+<p>#####2.无序列表：可在英文半角的状态下输入”-“和一个空格然后enter键</p>
+<blockquote>
+<ul>
+<li>萝卜</li>
+<li>白菜<br>#####3.代码块英文状态下输入”<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; ``` java</div><div class="line">&gt; public static void main(String []args)&#123;</div><div class="line">&gt;   System.Out.Println(&quot;生活不知眼前的苟且&quot;);</div><div class="line">&gt;     System.Out.Println(&quot;还有诗和远方&quot;);</div><div class="line">&gt;   </div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h5 id="4-引用-可用”-gt-”加空格"><a href="#4-引用-可用”-gt-”加空格" class="headerlink" title="4.  引用 可用”&gt;”加空格"></a>4.  引用 可用”&gt;”加空格</h5><blockquote>
+<p>牛顿说：我看的远是因为我站在巨人的肩上，你们也可以踩着我的肩膀，去追求未来。</p>
+</blockquote>
+<h5 id="5-标题-可用”-”表示，总共有6个标题，依次增加-即可"><a href="#5-标题-可用”-”表示，总共有6个标题，依次增加-即可" class="headerlink" title="5. 标题 可用”#”表示，总共有6个标题，依次增加#即可"></a>5. 标题 可用”#”表示，总共有6个标题，依次增加#即可</h5><blockquote>
+<h1 id="我是一级标题"><a href="#我是一级标题" class="headerlink" title="我是一级标题"></a>我是一级标题</h1><h2 id="我是二级标题"><a href="#我是二级标题" class="headerlink" title="我是二级标题"></a>我是二级标题</h2><h3 id="我是三级标题"><a href="#我是三级标题" class="headerlink" title="我是三级标题"></a>我是三级标题</h3><h4 id="我是四级标题"><a href="#我是四级标题" class="headerlink" title="我是四级标题"></a>我是四级标题</h4><h5 id="我是五级标题"><a href="#我是五级标题" class="headerlink" title="我是五级标题"></a>我是五级标题</h5><h6 id="我是六级标题"><a href="#我是六级标题" class="headerlink" title="我是六级标题"></a>我是六级标题</h6><h5 id="6-局中可用center标签，”局中的字“"><a href="#6-局中可用center标签，”局中的字“" class="headerlink" title="6. 局中可用center标签，”局中的字“"></a>6. 局中可用center标签，”<center>局中的字</center>“</h5><center>我要居中</center>
+
+<p>美中不足的是，Typora目前并不会直接预览居中效果——相应的效果只有输出文本的时候才会显现。</p>
+<h5 id="7-强调-可用“-我是强调的内容-”"><a href="#7-强调-可用“-我是强调的内容-”" class="headerlink" title="7. 强调 可用“*我是强调的内容*”"></a>7. 强调 可用“*我是强调的内容*”</h5><p>我很<em>美丽</em></p>
+</blockquote>
+<h5 id="8-加粗，铛铛铛——就是两个"><a href="#8-加粗，铛铛铛——就是两个" class="headerlink" title="8. 加粗，铛铛铛——就是两个**,"></a>8. <strong>加粗</strong>，铛铛铛——就是两个**,</h5><blockquote>
+<p>我很<strong>强壮</strong></p>
+</blockquote>
+<h5 id="9-下划线-，用“u标签”下划线内容"><a href="#9-下划线-，用“u标签”下划线内容" class="headerlink" title="9.下划线 ，用“u标签”下划线内容\"></a>9.下划线 ，用“u标签”<u>下划线内容\</u></h5><blockquote>
+<p><u> 生活如诗一般</u></p>
+<p><u>又如海风一般</u></p>
+<p><u>不仅浪漫</u></p>
+<p><u>偶尔还有点肆虐</u></p>
+</blockquote>
+<h5 id="10-代码区域块-‘code’-用反引号括起来的代码（如code）可以直接呈现为独特的形式，并且支持代码区块的。"><a href="#10-代码区域块-‘code’-用反引号括起来的代码（如code）可以直接呈现为独特的形式，并且支持代码区块的。" class="headerlink" title="10.代码区域块 ‘code’,用反引号括起来的代码（如code）可以直接呈现为独特的形式，并且支持代码区块的。"></a>10.代码区域块 ‘code’,用反引号括起来的代码（如<code>code</code>）可以直接呈现为独特的形式，并且支持代码区块的。</h5><blockquote>
+<p><code>#include &lt;iostream&gt;</code></p>
+<p><code>using namespace std;</code></p>
+<p><code>int main(){</code></p>
+<p><code>cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;</code></p>
+<p><code>}</code></p>
+</blockquote>
+<h5 id="11-转义反斜杠-加上普通字符，即可转义"><a href="#11-转义反斜杠-加上普通字符，即可转义" class="headerlink" title="11.转义反斜杠\加上普通字符，即可转义"></a>11.转义反斜杠\加上普通字符，即可转义</h5><blockquote>
+<p>\   反斜线<br>`   反引号<br>*   星号<br>_   底线<br>#   井字号<br>+   加号<br>-   减号<br>  .   英文句点<br>  !   惊叹号</p>
+</blockquote>
+<h5 id="12-我是分割线，————————————。"><a href="#12-我是分割线，————————————。" class="headerlink" title="12. 我是分割线，————————————。"></a>12. 我是分割线，————————————。</h5><h5 id="13-任务列表，“-空格-空格-”-x-表示完成，-空格-表示未完成-效果如下："><a href="#13-任务列表，“-空格-空格-”-x-表示完成，-空格-表示未完成-效果如下：" class="headerlink" title="13.任务列表，“-空格[空格]”,[x]表示完成，[空格]表示未完成,效果如下："></a>13.任务列表，“-空格[空格]”,[x]表示完成，[空格]表示未完成,效果如下：</h5><blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 吃饭</li>
+<li style="list-style: none"><input type="checkbox"> 睡觉</li>
+<li style="list-style: none"><input type="checkbox" checked> 打豆豆</li>
+<li style="list-style: none"><input type="checkbox" checked> 约炮</li>
+</ul>
+</blockquote>
+<h5 id="14-table-用来创建表格-用快捷键CTRL-T"><a href="#14-table-用来创建表格-用快捷键CTRL-T" class="headerlink" title="14.table ,用来创建表格(用快捷键CTRL+T)"></a>14.table ,用来创建表格(用快捷键CTRL+T)</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">学科</th>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">语文</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:left">数学</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">98</td>
+</tr>
+<tr>
+<td style="text-align:left">英语</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">90</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h5 id="15-插入URL连接-使用尖括号包裹的url将产生一个连接，例如：-lt-www-baidu-com-gt-将产生连接-www-baidu-com"><a href="#15-插入URL连接-使用尖括号包裹的url将产生一个连接，例如：-lt-www-baidu-com-gt-将产生连接-www-baidu-com" class="headerlink" title="15.插入URL连接     使用尖括号包裹的url将产生一个连接，例如：&lt;www.baidu.com&gt;将产生连接:www.baidu.com"></a>15.插入URL连接     使用尖括号包裹的url将产生一个连接，例如：<code>&lt;www.baidu.com&gt;</code>将产生连接:<a href="http://www.baidu.com/" target="_blank" rel="external">www.baidu.com</a></h5><blockquote>
+<p><a href="https://www.baidu.com/" target="_blank" rel="external">https://www.baidu.com/</a></p>
+<h5 id="16-注释，我们可以对某个词语进行-注释"><a href="#16-注释，我们可以对某个词语进行-注释" class="headerlink" title="16. 注释，我们可以对某个词语进行[^注释]"></a>16. 注释，我们可以对某个词语进行[^注释]</h5><p>   [^妻子@]: 老婆和孩子<br>     率妻子[^妻子@]邑人来此绝境。——晋· 陶渊明《桃花源记》</p>
+<p>   ​</p>
+<p>   《诗·小雅·常棣》：妻子“[^妻子@1]好合，如鼓瑟琴。”</p>
+<p>   [^妻子@1]: 老婆 </p>
+</blockquote>
+<h5 id="17-数学表达式块-输入两个美元符号-，然后回车，就可以输入数学表达式块了"><a href="#17-数学表达式块-输入两个美元符号-，然后回车，就可以输入数学表达式块了" class="headerlink" title="17. 数学表达式块,输入两个美元符号$，然后回车，就可以输入数学表达式块了"></a>17. 数学表达式块,输入两个美元符号$，然后回车，就可以输入数学表达式块了</h5><blockquote>
+<p><code>$$\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\\end{vmatrix}$$</code><br>$$\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\end{vmatrix}$$</p>
+<p>​</p>
+</blockquote>
+<h5 id="18-插入图片，哈哈，这个更简单，直接拖到编辑器就行。"><a href="#18-插入图片，哈哈，这个更简单，直接拖到编辑器就行。" class="headerlink" title="18. 插入图片，哈哈，这个更简单，直接拖到编辑器就行。"></a>18. 插入图片，哈哈，这个更简单，直接拖到编辑器就行。</h5><blockquote>
+<p><img src="C:\Users\tiantian\Desktop\travis-ci.png" alt="travis-ci"></p>
+</blockquote>
+<h5 id="19-删除线。两个波浪线”-”-要包起来哦，我被删除啦"><a href="#19-删除线。两个波浪线”-”-要包起来哦，我被删除啦" class="headerlink" title="19. 删除线。两个波浪线”~~”,要包起来哦，我被删除啦"></a>19. 删除线。两个波浪线”~~”,要包起来哦，<del>我被删除啦</del></h5><blockquote>
+<p><del>生活不只诗和远方，还有眼前的苟且</del></p>
+<p>但我更相信<br><strong>生活不只眼前的苟且，还有诗和远方</strong></p>
+</blockquote>
+<h5 id="20-表情。使用-happy-输入高兴的表情，使用-sad-输入悲伤的表情，使用-cry-输入哭的表情等。以此类推！"><a href="#20-表情。使用-happy-输入高兴的表情，使用-sad-输入悲伤的表情，使用-cry-输入哭的表情等。以此类推！" class="headerlink" title="20. 表情。使用:happy:输入高兴的表情，使用:sad:输入悲伤的表情，使用:cry:输入哭的表情等。以此类推！"></a>20. 表情。使用<code>:happy:</code>输入高兴的表情，使用<code>:sad:</code>输入悲伤的表情，使用<code>:cry:</code>输入哭的表情等。以此类推！</h5><blockquote>
+<p>:happy:<br>:sad:<br>:smile:</p>
+<h5 id="21-目录列表Table-of-Contents（TOC）"><a href="#21-目录列表Table-of-Contents（TOC）" class="headerlink" title="21. 目录列表Table of Contents（TOC）"></a>21. 目录列表Table of Contents（TOC）</h5><p>输入[Toc]然后回车，将会产生一个目录，这个目录抽取了文章的所有标题，自动更新内容。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Typora-markdown/" rel="tag"># Typora,markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/13/hello-xintian/" rel="next" title="hello xintian">
+                <i class="fa fa-chevron-left"></i> hello xintian
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/me.jpg"
+               alt="imxintian" />
+          <p class="site-author-name" itemprop="name">imxintian</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">標籤</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-引用-可用”-gt-”加空格"><span class="nav-number">1.</span> <span class="nav-text">4.  引用 可用”>”加空格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-标题-可用”-”表示，总共有6个标题，依次增加-即可"><span class="nav-number">2.</span> <span class="nav-text">5. 标题 可用”#”表示，总共有6个标题，依次增加#即可</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我是一级标题"><span class="nav-number"></span> <span class="nav-text">我是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我是二级标题"><span class="nav-number"></span> <span class="nav-text">我是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我是三级标题"><span class="nav-number"></span> <span class="nav-text">我是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我是四级标题"><span class="nav-number"></span> <span class="nav-text">我是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#我是五级标题"><span class="nav-number">1.</span> <span class="nav-text">我是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#我是六级标题"><span class="nav-number">1.1.</span> <span class="nav-text">我是六级标题</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-局中可用center标签，”局中的字“"><span class="nav-number">2.</span> <span class="nav-text">6. 局中可用center标签，”局中的字“</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-强调-可用“-我是强调的内容-”"><span class="nav-number">3.</span> <span class="nav-text">7. 强调 可用“*我是强调的内容*”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-加粗，铛铛铛——就是两个"><span class="nav-number">4.</span> <span class="nav-text">8. 加粗，铛铛铛——就是两个**,</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-下划线-，用“u标签”下划线内容"><span class="nav-number">5.</span> <span class="nav-text">9.下划线 ，用“u标签”下划线内容\</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-代码区域块-‘code’-用反引号括起来的代码（如code）可以直接呈现为独特的形式，并且支持代码区块的。"><span class="nav-number">6.</span> <span class="nav-text">10.代码区域块 ‘code’,用反引号括起来的代码（如code）可以直接呈现为独特的形式，并且支持代码区块的。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-转义反斜杠-加上普通字符，即可转义"><span class="nav-number">7.</span> <span class="nav-text">11.转义反斜杠\加上普通字符，即可转义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-我是分割线，————————————。"><span class="nav-number">8.</span> <span class="nav-text">12. 我是分割线，————————————。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-任务列表，“-空格-空格-”-x-表示完成，-空格-表示未完成-效果如下："><span class="nav-number">9.</span> <span class="nav-text">13.任务列表，“-空格[空格]”,[x]表示完成，[空格]表示未完成,效果如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-table-用来创建表格-用快捷键CTRL-T"><span class="nav-number">10.</span> <span class="nav-text">14.table ,用来创建表格(用快捷键CTRL+T)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-插入URL连接-使用尖括号包裹的url将产生一个连接，例如：-lt-www-baidu-com-gt-将产生连接-www-baidu-com"><span class="nav-number">11.</span> <span class="nav-text">15.插入URL连接     使用尖括号包裹的url将产生一个连接，例如：<www.baidu.com>将产生连接:www.baidu.com</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-注释，我们可以对某个词语进行-注释"><span class="nav-number">12.</span> <span class="nav-text">16. 注释，我们可以对某个词语进行[^注释]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-数学表达式块-输入两个美元符号-，然后回车，就可以输入数学表达式块了"><span class="nav-number">13.</span> <span class="nav-text">17. 数学表达式块,输入两个美元符号$，然后回车，就可以输入数学表达式块了</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-插入图片，哈哈，这个更简单，直接拖到编辑器就行。"><span class="nav-number">14.</span> <span class="nav-text">18. 插入图片，哈哈，这个更简单，直接拖到编辑器就行。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-删除线。两个波浪线”-”-要包起来哦，我被删除啦"><span class="nav-number">15.</span> <span class="nav-text">19. 删除线。两个波浪线”~~”,要包起来哦，我被删除啦</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#20-表情。使用-happy-输入高兴的表情，使用-sad-输入悲伤的表情，使用-cry-输入哭的表情等。以此类推！"><span class="nav-number">16.</span> <span class="nav-text">20. 表情。使用:happy:输入高兴的表情，使用:sad:输入悲伤的表情，使用:cry:输入哭的表情等。以此类推！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#21-目录列表Table-of-Contents（TOC）"><span class="nav-number">17.</span> <span class="nav-text">21. 目录列表Table of Contents（TOC）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imxintian</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
