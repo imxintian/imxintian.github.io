@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="MyBlog">
 <meta property="og:description" content="Hadoop面试宝典 写在前面：本面试题收集于网络，有顾晓卿，蔡志勇，王新天 共同整理。 ###  1. 简述Mapreduce构架组成MapReduce包含四个组成部分，分别为Client，JobTracker，TaskTracker，Task。  一个主节点JobTracker和多个TaskTracker Client： 每一个Job都会在用户端通过Client类将应用程序以及参数配置Conf">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-17T01:59:45.408Z">
+<meta property="og:updated_time" content="2017-11-17T02:11:28.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop 面试">
 <meta name="twitter:description" content="Hadoop面试宝典 写在前面：本面试题收集于网络，有顾晓卿，蔡志勇，王新天 共同整理。 ###  1. 简述Mapreduce构架组成MapReduce包含四个组成部分，分别为Client，JobTracker，TaskTracker，Task。  一个主节点JobTracker和多个TaskTracker Client： 每一个Job都会在用户端通过Client类将应用程序以及参数配置Conf">
@@ -694,15 +694,17 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 <li>4、 将输出的数据复制到对应的分区，默认一个键一个区，相同键放在同一个区中。</li>
 <li>5、 将输出的数据进行合并为 key-Iterable 格式。</li>
 <li>6、 每个分区有一个 reduce，每个 reduce 将同一个分区的数据进行合并处理为自己所需的数据格式。</li>
-<li>7、 将数据输出至 hdfs。<h3 id="39-什么样的计算不能用-mr-来提速，举-5-个例子。"><a href="#39-什么样的计算不能用-mr-来提速，举-5-个例子。" class="headerlink" title="39.什么样的计算不能用 mr 来提速，举 5 个例子。"></a>39.什么样的计算不能用 mr 来提速，举 5 个例子。</h3></li>
+<li>7、 将数据输出至 hdfs。</li>
+</ul>
+<h3 id="39-什么样的计算不能用-mr-来提速，举-5-个例子。"><a href="#39-什么样的计算不能用-mr-来提速，举-5-个例子。" class="headerlink" title="39.什么样的计算不能用 mr 来提速，举 5 个例子。"></a>39.什么样的计算不能用 mr 来提速，举 5 个例子。</h3><ul>
 <li>1、 数据量很小。</li>
 <li>2、 繁杂的小文件。</li>
 <li>3、 索引是更好的存取机制的时候。</li>
 <li>4、 事务处理。</li>
-<li><p>5、 只有一台机器的时候。</p>
-<h3 id="40-如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？"><a href="#40-如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？" class="headerlink" title="40.如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？"></a>40.如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？</h3></li>
-<li><p>hadoop有一个默认的分区类，HashPartioer类，通过对输入的k2去hash值来确认map输出的k2,v2送到哪一个reduce中去执行。</p>
-</li>
+<li>5、 只有一台机器的时候。</li>
+</ul>
+<h3 id="40-如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？"><a href="#40-如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？" class="headerlink" title="40.如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？"></a>40.如果没有自定义partitioner，那数据在被送达reducer前是如何被分区的？</h3><ul>
+<li>hadoop有一个默认的分区类，HashPartioer类，通过对输入的k2去hash值来确认map输出的k2,v2送到哪一个reduce中去执行。</li>
 </ul>
 
       
