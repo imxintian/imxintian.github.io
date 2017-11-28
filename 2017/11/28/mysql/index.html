@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mysql," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="mysql 总结写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  初始数据库 数据库（Database,简称DB） 概念 长期存放在计算机内，有组织,可共享大量数据的集合,是一个数据“仓库”。   作用 保存，管理数据。    数据库管理系统 (Database Management System） 数据管理软件，科学组织和存储数据、高效地获取">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 总结">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/mysql/index.html">
+<meta property="og:site_name" content="MyBlog">
+<meta property="og:description" content="mysql 总结写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  初始数据库 数据库（Database,简称DB） 概念 长期存放在计算机内，有组织,可共享大量数据的集合,是一个数据“仓库”。   作用 保存，管理数据。    数据库管理系统 (Database Management System） 数据管理软件，科学组织和存储数据、高效地获取">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-28T14:17:33.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql 总结">
+<meta name="twitter:description" content="mysql 总结写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  初始数据库 数据库（Database,简称DB） 概念 长期存放在计算机内，有组织,可共享大量数据的集合,是一个数据“仓库”。   作用 保存，管理数据。    数据库管理系统 (Database Management System） 数据管理软件，科学组织和存储数据、高效地获取">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/mysql/"/>
+
+
+
+
+
+  <title>mysql 总结 | MyBlog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3241164194476311a3a8e5609ee8f693";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--自己添加的动画
+  配置项说明
+color ：线条颜色, 默认: '0,0,0'；三个数字分别为(R,G,B)
+opacity: 线条透明度（0~1）, 默认: 0.5
+count: 线条的总数量, 默认: 150
+zIndex: 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1
+
+color="0,0,255" opacity='0.7' zIndex="-2" count="99"
+-->
+
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<!--添加结束-->
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MyBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">imxintian</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="imxintian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql 总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T22:06:44+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/28/mysql/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/28/mysql/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/11/28/mysql/" class="leancloud_visitors" data-flag-title="mysql 总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="mysql-总结"><a href="#mysql-总结" class="headerlink" title="mysql 总结"></a>mysql 总结</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><ul>
+<li>写作不易，如果感觉有用，请打赏作者一杯咖啡~</li>
+<li>转载请联系作者，或者注明作者，以及原文链接！</li>
+</ul>
+<h2 id="初始数据库"><a href="#初始数据库" class="headerlink" title="初始数据库"></a>初始数据库</h2><ul>
+<li>数据库（Database,简称DB）</li>
+<li>概念<ul>
+<li>长期存放在计算机内，有组织,可共享大量数据的集合,是一个数据“仓库”。</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>保存，管理数据。</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库管理系统-Database-Management-System）"><a href="#数据库管理系统-Database-Management-System）" class="headerlink" title="数据库管理系统 (Database Management System）"></a>数据库管理系统 (Database Management System）</h2><ul>
+<li>数据管理软件，科学组织和存储数据、高效地获取和维护数据</li>
+</ul>
+<h2 id="mysql-简介"><a href="#mysql-简介" class="headerlink" title="mysql 简介"></a>mysql 简介</h2><ul>
+<li>概念<ul>
+<li>是现流行的<strong>开源</strong>、<strong>免费</strong>的关系型数据库</li>
+</ul>
+</li>
+<li>特点<ul>
+<li>免费、开源数据库</li>
+<li>小巧、功能齐全</li>
+<li>使用便捷</li>
+<li>可运行于Windows或Linux操作系统</li>
+<li>可适用于中小型甚至大型网站应用</li>
+</ul>
+</li>
+</ul>
+<h2 id="结构化查询语句分类"><a href="#结构化查询语句分类" class="headerlink" title="结构化查询语句分类"></a>结构化查询语句分类</h2><ul>
+<li>DDL(定义和管理数据对象，如数据库，数据表等)<ul>
+<li>常用命令<ul>
+<li>CREATE<ul>
+<li>create database wxt_db;</li>
+</ul>
+</li>
+<li>DROP<ul>
+<li>drop database if exists wxt_db;</li>
+</ul>
+</li>
+<li>ALTER<ul>
+<li>重命名表<ul>
+<li>ALTER TABLE 旧表名  RENAME AS  新表名</li>
+<li>alter table student rename as students;</li>
+</ul>
+</li>
+<li>添加age字段<ul>
+<li>ALTER TABLE 表名   ADD 字段名   列类型 [ 属性 ]</li>
+<li>alter table students add age int(10);</li>
+</ul>
+</li>
+<li>修改age字段类型 <ul>
+<li>ALTER TABLE 表名   MODIFY 字段名   列类型 [ 属性 ]</li>
+<li>alter table students modify age int(3);</li>
+</ul>
+</li>
+<li>修改sex字段名<ul>
+<li>ALTER TABLE 表名   CHANGE 旧字段名  新字段名   列类型 [ 属性 ]</li>
+<li>alter table students change sex gender char(2);</li>
+</ul>
+</li>
+<li>删除age字段<ul>
+<li>ALTER TABLE 表名   DROP  字段名</li>
+<li>alter table students drop age;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DML (用于操作数据库对象中所包含的数据)<ul>
+<li>常用命令<ul>
+<li>INSERT<ul>
+<li>INSERT INTO  表名  [ ( 字段1, 字段2, 字段3, … ) ]  VALUES  (  ‘值1’, ‘值2’, ‘值3’, …)</li>
+<li>insert into student values (null, ‘jack’, ‘男’);</li>
+<li>insert into student (id,name) values (null, ‘rose’);</li>
+</ul>
+</li>
+<li>UPDATE<ul>
+<li>UPDATE   表名   SET    column_name = value  [ ,  column_name2= value2, …. ][ WHERE   condition];</li>
+<li>update account set cash=cash-500 where name=’A’;</li>
+</ul>
+</li>
+<li>DELETE<ul>
+<li>DELETE FROM   表名  [ WHERE  condition ];</li>
+<li>delete from student where id=1;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DQL (用于查询数据库数据)<ul>
+<li>SELECT</li>
+</ul>
+</li>
+<li>DCL(用来管理数据库的语言，包括管理权限及数据更改)<ul>
+<li>GRANT</li>
+<li>COMMIT</li>
+<li>ROLLBACK</li>
+</ul>
+</li>
+</ul>
+<h2 id="创建表语句"><a href="#创建表语句" class="headerlink" title="创建表语句"></a>创建表语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span>   <span class="keyword">TABLE</span> [ <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> ]    <span class="string">`表名`</span>   (</div><div class="line"></div><div class="line"></div><div class="line">		<span class="string">`字段名1`</span>    列类型 [ 属性 ]  [ 索引 ] [注释] ,</div><div class="line">			<span class="string">`字段名2`</span>   列类型 [ 属性 ]  [ 索引 ] [注释] ,</div><div class="line">		… …</div><div class="line">		<span class="string">`字段名n`</span>   列类型 [ 属性 ]  [ 索引 ] [注释]</div><div class="line"></div><div class="line"></div><div class="line">)  [  表类型 ] [ 表字符集 ] [注释] ;</div></pre></td></tr></table></figure>
+<hr>
+<p>对照</p>
+<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">			<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>),</div><div class="line">			<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">			sex <span class="built_in">char</span>(<span class="number">1</span>),</div><div class="line">			age <span class="built_in">int</span>(<span class="number">3</span>),</div><div class="line">			major <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">			birthday datetime,</div><div class="line">			address <span class="built_in">varchar</span>(<span class="number">50</span>)</div><div class="line">		);</div></pre></td></tr></table></figure>
+<p>属性</p>
+<ul>
+<li><p>unsigned    修饰的列不能为负数</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">         <span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> student;</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>),</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">	age <span class="built_in">int</span>(<span class="number">3</span>) <span class="keyword">unsigned</span></div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>zerofill    如果int(3), 记录对应的值为7,  显示出来就是007</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">         <span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> student;</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">3</span>) zerofill,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>auto_increment,    自动增长</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">         <span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> student;</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">5</span>) auto_increment,#自动增长和主键一起用</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">	primary <span class="keyword">key</span>(<span class="keyword">id</span>)#  把<span class="keyword">id</span>设置为主键</div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>null not null</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">         <span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> student;</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">5</span>) auto_increment,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,# 不能为<span class="literal">null</span></div><div class="line">	primary <span class="keyword">key</span>(<span class="keyword">id</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>default</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> student;</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">5</span>) auto_increment <span class="keyword">comment</span> <span class="string">'这是id字段'</span>,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">	sex <span class="built_in">char</span>(<span class="number">2</span>) <span class="keyword">default</span> <span class="string">'保密'</span>,#设置默认值</div><div class="line">	primary <span class="keyword">key</span>(<span class="keyword">id</span>)</div><div class="line">) <span class="keyword">comment</span> <span class="string">'这是描述学生的表'</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><ul>
+<li><p>事务就是将一组SQL语句放在同一批次内去执行,如果一个SQL语句出错，则该批次内的所有SQL都<br>将被取消执行</p>
+</li>
+<li><p>事务的四大原则</p>
+<ul>
+<li>原子性(Atomicity)<ul>
+<li>事务中的全部操作在数据库中是不可分割的，要么全部完成，要么均不执行。</li>
+</ul>
+</li>
+<li>一致性(Consistency)：<ul>
+<li>事务的执行前后,数据完整性要保持一致。</li>
+</ul>
+</li>
+<li>隔离性(Isolation)：<ul>
+<li>事务的执行不受其他事务的干扰，事务执行的中间结果对其他事务必须是透明的。</li>
+</ul>
+</li>
+<li>持久性(Durability)：<ul>
+<li>对于任意已提交事务，系统必须保证该事务对数据库的改变不被丢失，即使数据库出现故障。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事务的应用场景<br>转账:<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">account</span> (</div><div class="line">		<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>) auto_increment primary <span class="keyword">key</span>,</div><div class="line">		<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>),</div><div class="line">		cash <span class="keyword">double</span></div><div class="line">	);</div><div class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">account</span> </div><div class="line">	(<span class="keyword">name</span>, cash) </div><div class="line">	<span class="keyword">values</span> </div><div class="line">	(<span class="string">'A'</span>,<span class="number">2000</span>),</div><div class="line">	(<span class="string">'B'</span>,<span class="number">10000</span>);</div><div class="line">	</div><div class="line">	</div><div class="line">	##############事务操作################</div><div class="line">	#1 关闭自动提交</div><div class="line">	<span class="keyword">set</span> autocommit=<span class="number">0</span>;</div><div class="line">	#2 开启事务</div><div class="line">	<span class="keyword">start</span> <span class="keyword">transaction</span>;</div><div class="line">	#3  sql 由于各种原因有可能转账失败</div><div class="line">	<span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> cash=cash<span class="number">-500</span> <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'A'</span>;</div><div class="line">	<span class="keyword">update</span> <span class="keyword">account</span> <span class="keyword">set</span> cash=cash+<span class="number">500</span> <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'B'</span>;</div><div class="line">	#4回滚或提交(失败使用回滚)</div><div class="line">	commit;#rollback;</div><div class="line">	#开启自动提交</div><div class="line">	<span class="keyword">set</span> autocommit=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="DQL精讲"><a href="#DQL精讲" class="headerlink" title="DQL精讲"></a>DQL精讲</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`student`</span>;</div><div class="line">	#案例中的表</div><div class="line">	<span class="keyword">create</span> <span class="keyword">table</span> student (</div><div class="line">	  <span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>) auto_increment,</div><div class="line">	  <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">	  sex <span class="built_in">char</span>(<span class="number">1</span>),</div><div class="line">	  age <span class="built_in">int</span>(<span class="number">3</span>),</div><div class="line">	  chinese <span class="built_in">int</span>(<span class="number">3</span>),</div><div class="line">	  math <span class="built_in">int</span>(<span class="number">3</span>),</div><div class="line">	  english <span class="built_in">int</span>(<span class="number">3</span>),</div><div class="line">	  grade <span class="built_in">varchar</span>(<span class="number">10</span>),</div><div class="line">	  primary <span class="keyword">key</span>  (<span class="keyword">id</span>)</div><div class="line">	) <span class="keyword">charset</span>=utf8;</div><div class="line"></div><div class="line">	<span class="keyword">insert</span>  <span class="keyword">into</span> student</div><div class="line">	(<span class="keyword">id</span>,<span class="keyword">name</span>,sex,age,chinese,math,english,grade) </div><div class="line">	<span class="keyword">values</span> </div><div class="line">	(<span class="number">1</span>,<span class="string">'赵子龙'</span>,<span class="string">'男'</span>,<span class="number">30</span>,<span class="number">100</span>,<span class="number">90</span>,<span class="number">60</span>,<span class="string">'1班'</span>),</div><div class="line">	(<span class="number">2</span>,<span class="string">'吕布'</span>,<span class="string">'男'</span>,<span class="number">35</span>,<span class="number">90</span>,<span class="number">90</span>,<span class="number">90</span>,<span class="string">'1班'</span>),</div><div class="line">	(<span class="number">3</span>,<span class="string">'诸葛孔明'</span>,<span class="string">'男'</span>,<span class="number">30</span>,<span class="number">60</span>,<span class="number">60</span>,<span class="number">60</span>,<span class="string">'1班'</span>),</div><div class="line">	(<span class="number">4</span>,<span class="string">'张飞'</span>,<span class="string">'男'</span>,<span class="number">20</span>,<span class="number">10</span>,<span class="number">59</span>,<span class="number">0</span>,<span class="string">'1班'</span>),</div><div class="line">	(<span class="number">5</span>,<span class="string">'貂蝉'</span>,<span class="string">'女'</span>,<span class="number">18</span>,<span class="number">100</span>,<span class="number">70</span>,<span class="number">99</span>,<span class="string">'2班'</span>),</div><div class="line">	(<span class="number">6</span>,<span class="string">'大乔'</span>,<span class="string">'女'</span>,<span class="number">20</span>,<span class="number">100</span>,<span class="number">90</span>,<span class="number">60</span>,<span class="string">'2班'</span>),</div><div class="line">	(<span class="number">7</span>,<span class="string">'小乔'</span>,<span class="string">'女'</span>,<span class="number">20</span>,<span class="number">100</span>,<span class="number">90</span>,<span class="number">60</span>,<span class="string">'2班'</span>),</div><div class="line">	(<span class="number">8</span>,<span class="string">'张三三'</span>,<span class="string">'女'</span>,<span class="number">20</span>,<span class="number">10</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="string">'2班'</span>),</div><div class="line">	(<span class="number">9</span>,<span class="string">'曹操'</span>,<span class="string">'男'</span>,<span class="number">50</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">90</span>,<span class="string">'2班'</span>),</div><div class="line">	(<span class="number">10</span>,<span class="string">'李四'</span>,<span class="string">'男'</span>,<span class="number">18</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="string">'3班'</span>);</div></pre></td></tr></table></figure>
+<h3 id="1-普通查询-select"><a href="#1-普通查询-select" class="headerlink" title="1. 普通查询 select"></a>1. 普通查询 select</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#查询所有</div><div class="line">	<span class="keyword">select</span>* <span class="keyword">from</span> tb;</div><div class="line">#指定字段</div><div class="line">	<span class="keyword">select</span> field1, field2, ... <span class="keyword">from</span> tb;</div><div class="line">#为字段起别名</div><div class="line">	<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">as</span> 学号, <span class="keyword">name</span> 名字, math+<span class="number">10</span> 数学, chinese 中文,english 英文 <span class="keyword">from</span> student ;</div><div class="line">#查询学生的id name,各科成绩,总分和平均分</div><div class="line">	<span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span>,english,math,chinese,english+math+chinese 总分,(english+math+chinese)/<span class="number">3</span> 平均分 <span class="keyword">from</span> student;</div><div class="line"></div><div class="line">#查询所有的学生所有字段 </div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student;</div><div class="line">#查询所有学生对应的数学和英语 </div><div class="line">	<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span>, math, english <span class="keyword">from</span> student;</div><div class="line">#过滤表中的重复数据 显示数学成绩</div><div class="line">	<span class="keyword">select</span> <span class="keyword">distinct</span> math <span class="keyword">from</span> student;</div><div class="line">#所有学生的分数+10分显示 </div><div class="line">	<span class="keyword">select</span> <span class="keyword">name</span>, english+math+chinese+<span class="number">10</span> 总分 <span class="keyword">from</span> student;</div></pre></td></tr></table></figure>
+<h3 id="2-条件查询"><a href="#2-条件查询" class="headerlink" title="2. 条件查询"></a>2. 条件查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">查询英语成绩大于90分的同学</div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> english&gt;<span class="number">90</span>;</div><div class="line">查询总分大于270的同学</div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> english+chinese+math&gt;<span class="number">270</span>;</div><div class="line">数学成绩在80~100之间的同学 </div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> math&gt;=<span class="number">80</span> <span class="keyword">and</span> math&lt;=<span class="number">100</span>;</div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> math <span class="keyword">between</span> <span class="number">80</span> <span class="keyword">and</span> <span class="number">100</span>;</div><div class="line">查询成绩在数学57,58,59,60的同学</div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> math <span class="keyword">in</span> (<span class="number">57</span>,<span class="number">58</span>,<span class="number">59</span>,<span class="number">60</span>);</div><div class="line">查询数学成绩&gt;90,英语&lt;60的同学 </div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> math&gt;<span class="number">90</span> <span class="keyword">and</span> english&lt;<span class="number">60</span>;</div></pre></td></tr></table></figure>
+<h3 id="3-模糊查询-使用like-0或多个字符-一个字符"><a href="#3-模糊查询-使用like-0或多个字符-一个字符" class="headerlink" title="3. 模糊查询 使用like , %:0或多个字符 ,  _ :一个字符"></a>3. 模糊查询 使用like , %:0或多个字符 ,  _ :一个字符</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">查询名字中带有明的 </div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%明%'</span>;		</div><div class="line">查找名字叫张x的学生 </div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'张_'</span>;</div><div class="line">查找名字叫张xx的同学 </div><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'张__'</span>;</div></pre></td></tr></table></figure>
+<h3 id="4-排序查询-order-by-字段名-asc-desc"><a href="#4-排序查询-order-by-字段名-asc-desc" class="headerlink" title="4. 排序查询(order by 字段名 asc|desc)"></a>4. 排序查询(order by 字段名 asc|desc)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">	按数学成绩高低排序 (desc 表示降序)</div><div class="line">		<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span>, math <span class="keyword">from</span> student <span class="keyword">order</span> <span class="keyword">by</span> math <span class="keyword">desc</span>;</div><div class="line">	按总分成绩由低到高 </div><div class="line">		<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span>, math+chinese+english 总分</div><div class="line">		<span class="keyword">from</span> student <span class="keyword">order</span> <span class="keyword">by</span> 总分;</div><div class="line">	对姓张的学生按数学成绩排序输出(降序) </div><div class="line">		<span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span>, math <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'张%'</span></div><div class="line">		<span class="keyword">order</span> <span class="keyword">by</span> math <span class="keyword">desc</span>;</div><div class="line">```	</div><div class="line">### 5. 分组查询 (group by):</div><div class="line">```sql</div><div class="line">	where 在分组之前进行过滤，不能使用聚合函数</div><div class="line">	having 在分组之后进行过滤，可以使用聚合函数,having中用到的列，必须在前面使用过才可以用</div><div class="line">	<span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span> <span class="keyword">from</span> students <span class="keyword">group</span> <span class="keyword">by</span> math;</div></pre></td></tr></table></figure>
+<h3 id="6-使用聚合函数"><a href="#6-使用聚合函数" class="headerlink" title="6. 使用聚合函数"></a>6. 使用聚合函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> student;</div><div class="line">	#count :统计符合条件的记录个数</div><div class="line">	#1. 统计一个班级的共有多少学生</div><div class="line">		<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> student;</div><div class="line">	#2. 统计总分及格的学生个数</div><div class="line">		<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> student </div><div class="line">		<span class="keyword">where</span> english+math+chinese&gt;=<span class="number">180</span>;</div><div class="line">	#3. 统计各个班级总分及格的学生个数</div><div class="line">		<span class="keyword">select</span> grade 班级, <span class="keyword">count</span>(*) 人数 <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">where</span> english+math+chinese&gt;=<span class="number">180</span></div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> grade;</div><div class="line">	#4. 统计各个班级总分及格的学生个数, 只显示几个人数多于4个的</div><div class="line">		<span class="keyword">select</span> grade 班级, <span class="keyword">count</span>(*) 人数 <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">where</span> english+math+chinese&gt;=<span class="number">180</span></div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> grade</div><div class="line">		<span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;=<span class="number">4</span>;</div><div class="line"></div><div class="line">	##SUM : 返回满足条件的,列对应数据的总和</div><div class="line"></div><div class="line">	统计数学总成绩</div><div class="line">		<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(math) <span class="keyword">FROM</span> student;</div><div class="line"></div><div class="line">	#1. 统计各个班级的数学成绩总和</div><div class="line"></div><div class="line">		<span class="keyword">SELECT</span> grade ,<span class="keyword">SUM</span>(math) <span class="keyword">FROM</span> student</div><div class="line">		<span class="keyword">GROUP</span> <span class="keyword">BY</span> grade;</div><div class="line"></div><div class="line">	#2. 计各个班级各科总成绩:</div><div class="line">		<span class="keyword">SELECT</span> grade, <span class="keyword">SUM</span>(chinese),<span class="keyword">SUM</span>(math),<span class="keyword">SUM</span>(english) </div><div class="line">		<span class="keyword">FROM</span> student </div><div class="line">		<span class="keyword">GROUP</span> <span class="keyword">BY</span> grade;</div><div class="line">	#3. 统计各个班级总分</div><div class="line">		<span class="keyword">SELECT</span> grade, <span class="keyword">SUM</span>(chinese+math+english) </div><div class="line">		<span class="keyword">FROM</span> student </div><div class="line">		<span class="keyword">GROUP</span> <span class="keyword">BY</span> grade;</div><div class="line"></div><div class="line">	##AVG : 返回一列的平均值</div><div class="line"></div><div class="line">	#1. 求各个班级数学平均分</div><div class="line">		<span class="keyword">select</span> grade,<span class="keyword">avg</span>(math) <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> grade;</div><div class="line">	#2. 求各个班级总分的平均分</div><div class="line">		<span class="keyword">select</span> grade , <span class="keyword">avg</span>(chinese+math+english) <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> grade;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">	#max/min : 函数返回满足where条件的列最大值/最小值</div><div class="line"></div><div class="line">	#1. 各个班级数学最高分</div><div class="line">		<span class="keyword">select</span> <span class="keyword">max</span>(math) <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> grade; </div><div class="line">	#2. 各个班级成绩的最高分</div><div class="line">		<span class="keyword">select</span> grade,<span class="keyword">max</span>(math+chinese+english) <span class="keyword">from</span> student</div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> grade;</div><div class="line">		</div><div class="line">#limit用来做分页显示</div><div class="line">	 LIMIT  [m,]n    m: 开始位置,   n 偏移量   第m条记录后的n条数据</div><div class="line"></div><div class="line">	#总成绩前3的学生</div><div class="line">	<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span> , english+chinese+math 总分 <span class="keyword">from</span> student </div><div class="line">	<span class="keyword">order</span> <span class="keyword">by</span> 总分 <span class="keyword">DESC</span></div><div class="line">	<span class="keyword">limit</span> <span class="number">3</span>;</div><div class="line">	#总成绩5~10的学生</div><div class="line">	<span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span> , english+chinese+math 总分 <span class="keyword">from</span> student </div><div class="line">	<span class="keyword">order</span> <span class="keyword">by</span> 总分</div><div class="line">	<span class="keyword">limit</span> <span class="number">4</span>, <span class="number">6</span>;</div></pre></td></tr></table></figure>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>提高查询速度</p>
+<ul>
+<li>主键索引（PRIMARY  KEY）<ul>
+<li>同时保证实体完整性</li>
+</ul>
+</li>
+<li>唯一索引（UNIQUE）<ul>
+<li>避免同一个表中某数据列中的值重复，与主键索引区别：主键索引只能有一个，唯一索引可有多个</li>
+</ul>
+</li>
+<li>常规索引（INDEX）<ul>
+<li>快速定位特定数据</li>
+</ul>
+</li>
+<li>全文索引（FULLTEXT）<ul>
+<li>只能用于MYISAM类型的数据表，只能用于CHAR 、VARCHAR、TEXT据列类型，适合大型数据集</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>索引不是越多越好！！！不要对经常变动的数据加索引，小数据量的表建议不要加索引，一般应加在查找条件的字段</strong></p>
+<h2 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">#数据库中,提供的语法, 帮我们约束表与表之间列的参考关系</div><div class="line">	###########		多表查询	#############</div><div class="line">	drop table if exists dept;#如果存在就删除</div><div class="line">	# 部门表</div><div class="line">	<span class="keyword">create</span> <span class="keyword">table</span> dept(</div><div class="line">		<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">5</span>) auto_increment,</div><div class="line">		<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">		tel <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">		primary <span class="keyword">key</span>(<span class="keyword">id</span>)</div><div class="line">	);</div><div class="line">	#员工表</div><div class="line">	<span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> emp;</div><div class="line">	<span class="keyword">create</span> <span class="keyword">table</span> emp (</div><div class="line">		<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>) auto_increment,</div><div class="line">		<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">		salary <span class="keyword">double</span>,</div><div class="line">		age <span class="built_in">int</span>(<span class="number">3</span>),</div><div class="line">		sex <span class="built_in">char</span>(<span class="number">1</span>),</div><div class="line">		dept_id <span class="built_in">int</span>(<span class="number">5</span>),#参考部门的<span class="keyword">id</span></div><div class="line">		foreign <span class="keyword">key</span>(dept_id) <span class="keyword">references</span> dept(<span class="keyword">id</span>), # 定义外键</div><div class="line">		primary <span class="keyword">key</span>(<span class="keyword">id</span>)</div><div class="line">	);</div><div class="line">	#添加部门信息</div><div class="line">		<span class="keyword">truncate</span> dept;</div><div class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> dept </div><div class="line">		(<span class="keyword">id</span>,<span class="keyword">name</span>,tel) <span class="keyword">values</span> </div><div class="line">		(<span class="number">1</span>,<span class="string">'人事部'</span>,<span class="string">'021-6818888'</span>),</div><div class="line">		(<span class="number">2</span>,<span class="string">'财务部'</span>,<span class="string">'021-6818877'</span>),</div><div class="line">		(<span class="number">3</span>,<span class="string">'技术部'</span>,<span class="string">'021-6818866'</span>),</div><div class="line">		(<span class="number">4</span>,<span class="string">'市场部'</span>,<span class="string">'021-6818855'</span>);</div><div class="line">	#添加员工</div><div class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> emp <span class="keyword">values</span> </div><div class="line">		(<span class="literal">null</span>,<span class="string">'尚云飞'</span>,<span class="number">10000</span>,<span class="number">29</span>,<span class="string">'男'</span>,<span class="number">2</span>),</div><div class="line">		(<span class="literal">null</span>,<span class="string">'吕纯阳'</span>,<span class="number">8000</span>,<span class="number">30</span>,<span class="string">'男'</span>,<span class="number">1</span>),</div><div class="line">		(<span class="literal">null</span>,<span class="string">'七星'</span>,<span class="number">8000</span>,<span class="number">20</span>,<span class="string">'女'</span>,<span class="number">3</span>),</div><div class="line">		(<span class="literal">null</span>,<span class="string">'令狐冲'</span>,<span class="number">10000</span>,<span class="number">29</span>,<span class="string">'男'</span>,<span class="number">4</span>);</div><div class="line"></div><div class="line">		<span class="keyword">select</span>*  <span class="keyword">from</span> dept;</div><div class="line">		<span class="keyword">select</span> * <span class="keyword">from</span> emp;</div><div class="line">		</div><div class="line">		#问题</div><div class="line">		#不能添加一个员工到   不存在部门</div><div class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> emp <span class="keyword">values</span> (<span class="literal">null</span>,<span class="string">'张三'</span>,<span class="number">10000</span>,<span class="number">18</span>,<span class="string">'男'</span>,<span class="number">6</span>);</div><div class="line">		#删除部门 先删除部门再删除员工 </div><div class="line">		<span class="keyword">delete</span> <span class="keyword">from</span> emp <span class="keyword">where</span> dept_id=<span class="number">1</span>;</div><div class="line">		<span class="keyword">delete</span> <span class="keyword">from</span> dept <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'人事部'</span>;</div></pre></td></tr></table></figure>
+<h2 id="表与表之间的关系"><a href="#表与表之间的关系" class="headerlink" title="表与表之间的关系"></a>表与表之间的关系</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">1) 笛卡尔积</div><div class="line">	<span class="keyword">select</span> dept.*, emp.* <span class="keyword">from</span> dept,emp;</div><div class="line">2) **#查看员工及所属部门信息</div><div class="line">	<span class="keyword">select</span> emp.*, dept.* <span class="keyword">from</span> dept,emp</div><div class="line">	<span class="keyword">where</span> dept.id=emp.dept_id;</div><div class="line">3)**#内联   理解内连接作用及语法</div><div class="line">	<span class="keyword">select</span> emp.*, dept.* <span class="keyword">from</span> emp	</div><div class="line">	<span class="keyword">inner</span> <span class="keyword">join</span> dept</div><div class="line">	<span class="keyword">on</span> emp.dept_id=dept.id;</div><div class="line">4)**#左外连接  理解外连接的作用及语法</div><div class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp</div><div class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> dept</div><div class="line">	<span class="keyword">ON</span> emp.dept_id=dept.id;</div><div class="line">		</div><div class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dept</div><div class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> emp</div><div class="line">	<span class="keyword">ON</span> emp.dept_id=dept.id;</div><div class="line">5) #右外连接</div><div class="line">	</div><div class="line">#全连接</div><div class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp</div><div class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> dept</div><div class="line">	<span class="keyword">ON</span> emp.dept_id=dept.id</div><div class="line"></div><div class="line">	<span class="keyword">UNION</span> </div><div class="line"></div><div class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp</div><div class="line">	<span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> dept</div><div class="line">	<span class="keyword">ON</span> emp.dept_id=dept.id;</div></pre></td></tr></table></figure>
+<h2 id="综合测试"><a href="#综合测试" class="headerlink" title="综合测试"></a>综合测试</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">#1 查看员工信息及所属部门信息</div><div class="line">		<span class="keyword">select</span> * <span class="keyword">from</span> emp </div><div class="line">		<span class="keyword">inner</span> <span class="keyword">join</span> dept </div><div class="line">		<span class="keyword">on</span> emp.dept_id = dept.id; </div><div class="line">#2 查看叫熊二的员工的所属部门名及电话</div><div class="line">		#内链查询</div><div class="line">		<span class="keyword">select</span> dept.name,tel <span class="keyword">from</span> emp</div><div class="line">		<span class="keyword">inner</span> <span class="keyword">join</span> dept </div><div class="line">		<span class="keyword">on</span> emp.dept_id = dept.id</div><div class="line">		<span class="keyword">where</span> emp.name=<span class="string">'熊二'</span>;</div><div class="line">		#子查询</div><div class="line">		<span class="keyword">select</span> <span class="keyword">name</span>, tel <span class="keyword">from</span> dept </div><div class="line">		<span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span></div><div class="line">		(<span class="keyword">select</span> dept_id <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'熊二'</span>);</div><div class="line">#3 查看各部门人数</div><div class="line">		<span class="keyword">SELECT</span> dept.name, <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> dept</div><div class="line">		<span class="keyword">INNER</span> <span class="keyword">JOIN</span> emp <span class="keyword">ON</span> dept.id=emp.dept_id</div><div class="line">		<span class="keyword">GROUP</span> <span class="keyword">BY</span> dept.id;</div><div class="line">		</div><div class="line">#4 查看各部门平均薪资</div><div class="line">		<span class="keyword">SELECT</span> dept.name, <span class="keyword">avg</span>(salary) <span class="keyword">FROM</span> dept</div><div class="line">		<span class="keyword">INNER</span> <span class="keyword">JOIN</span> emp <span class="keyword">ON</span> dept.id=emp.dept_id</div><div class="line">		<span class="keyword">group</span> <span class="keyword">by</span> dept.id;</div><div class="line">#5 给技术部所有员工加薪1000</div><div class="line">		<span class="keyword">update</span> emp <span class="keyword">set</span> salary=salary+<span class="number">1000</span></div><div class="line">		<span class="keyword">where</span> dept_id <span class="keyword">in</span> </div><div class="line">		(<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> dept <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'技术部'</span>);</div><div class="line">#6 按薪资降序查看员工信息及部门名称</div><div class="line">	  <span class="keyword">select</span> emp.*, dept.name <span class="keyword">from</span> dept </div><div class="line">	  <span class="keyword">inner</span> <span class="keyword">join</span> emp <span class="keyword">on</span> dept.id = emp.dept_id</div><div class="line">	  <span class="keyword">order</span> <span class="keyword">by</span> salary <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
+<h2 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份()"></a>数据库备份()</h2><ul>
+<li><ol>
+<li><p>没有登录mysql</p>
+<ul>
+<li><p>备份</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">      mysqldump -u root -p [选项] 数据库名 [表1,...] &gt; 位置</div><div class="line"></div><div class="line">mysqldump -u root -p test_db persons &gt; D:\per.sql</div></pre></td></tr></table></figure>
+</li>
+<li><p>恢复数据</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p 数据库名 &lt; 位置</div><div class="line"></div><div class="line">mysql -u root -p person_db &lt; D:\per.sql</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><p>登录mysql</p>
+<ul>
+<li>恢复到当前数据库<ul>
+<li>source sql位置<h2 id="视图-触发器-函数-存储过程"><a href="#视图-触发器-函数-存储过程" class="headerlink" title="视图/触发器/函数/存储过程"></a>视图/触发器/函数/存储过程</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">  1)视图</div><div class="line">#创建视图  视图名dept_emp_view</div><div class="line">#解释, 把select的结果作为视图,视图是一张虚表,数据来源于真是表</div><div class="line">	<span class="keyword">CREATE</span> <span class="keyword">VIEW</span> dept_emp_view </div><div class="line">	<span class="keyword">AS</span> </div><div class="line">	<span class="keyword">SELECT</span> emp.eid,ename,sex,income,salary,age,dept.did,dname,dtel <span class="keyword">FROM</span> emp</div><div class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> dept <span class="keyword">ON</span> emp.did = dept.did;</div><div class="line">#查询虚表</div><div class="line">	<span class="keyword">select</span> ename,dname <span class="keyword">from</span> dept_emp_view;</div><div class="line">	</div><div class="line">#删除视图</div><div class="line">	<span class="keyword">DROP</span> <span class="keyword">VIEW</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> 视图名</div><div class="line">#查看视图</div><div class="line">	<span class="keyword">DESC</span> myview;</div><div class="line">	<span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myview;</div><div class="line"></div><div class="line">#修改视图</div><div class="line">	<span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">VIEW</span> myview(<span class="keyword">id</span>,<span class="keyword">NAME</span>,dname) <span class="keyword">AS</span> <span class="keyword">SELECT</span> 字段<span class="number">1</span>,字段<span class="number">2</span>,字段<span class="number">3</span> <span class="keyword">FROM</span> ...;</div><div class="line"></div><div class="line">  2) 存储过程</div><div class="line">a)基本的存储过程使用</div><div class="line">#定界符(结束符)  是   ";"</div><div class="line">delimiter $		#修改定界符为$ 	</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> test_pro()</div><div class="line">	<span class="keyword">begin</span>		#存储过程定义开始 相当于<span class="keyword">java</span>中方法的&#123;</div><div class="line">		<span class="keyword">update</span> employee <span class="keyword">set</span> salary=salary+<span class="number">1000</span></div><div class="line">		<span class="keyword">where</span> did=(<span class="keyword">select</span> did <span class="keyword">from</span> department <span class="keyword">where</span> dname=<span class="string">'研发部 '</span>);</div><div class="line">	<span class="keyword">end</span>			#存储过程定义结束  相当于<span class="keyword">java</span>中方法的&#125;</div><div class="line">$				#结束		</div><div class="line">delimiter ;		#结束符为;</div><div class="line">#调用存储过程</div><div class="line"><span class="keyword">call</span> test_pro();</div><div class="line">#删除</div><div class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> test_pro;</div><div class="line">#查看存储过程</div><div class="line"><span class="keyword">SHOW</span> <span class="keyword">PROCEDURE</span> <span class="keyword">STATUS</span>;</div><div class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> test_pro;</div><div class="line"></div><div class="line">#测试</div><div class="line"><span class="keyword">select</span> ename,salary,did <span class="keyword">from</span> employee;</div><div class="line"></div><div class="line">b)***扩展***    带参数的存储过程使用</div><div class="line">#1. 准备创建用户表		实现调用存储过程,通过传参 实现把记录再次重插入user表  </div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">USER</span> (</div><div class="line">	u_id <span class="built_in">INT</span>(<span class="number">10</span>) AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</div><div class="line">	uname <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</div><div class="line">);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">USER</span> <span class="keyword">VALUES</span> (<span class="number">1</span>,<span class="string">'张三'</span>),(<span class="number">2</span>,<span class="string">'李四'</span>),(<span class="number">3</span>,<span class="string">'王五'</span>);</div><div class="line"></div><div class="line">#2. 创建存储过程 	in|out|inout in类型参数v_id 用来传递参数</div><div class="line">DELIMITER $$ #   </div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> my_pro(<span class="keyword">IN</span> v_id <span class="built_in">INT</span>)  </div><div class="line"><span class="keyword">BEGIN</span>  </div><div class="line">  DECLARE v_uname VARCHAR(50); 	#定义变量</div><div class="line">  SELECT uname INTO v_uname FROM USER WHERE u_id = v_id; #通过select...into...给变量赋值  </div><div class="line">  INSERT INTO USER (u_id, uname) VALUES (NULL,v_uname); #执行DDL语句   </div><div class="line"><span class="keyword">END</span> </div><div class="line">$$ 								#存储过程创建结束  </div><div class="line">DELIMITER ; 					#恢复mysql分号定界符  </div><div class="line"></div><div class="line">#测试 </div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">USER</span>;</div><div class="line">#3. 调用</div><div class="line"><span class="keyword">CALL</span> my_pro(<span class="number">2</span>);</div><div class="line">  3) 函数</div><div class="line">          系统函数</div><div class="line">          </div><div class="line">          自定义函数</div><div class="line"></div><div class="line">          </div><div class="line">              mysql&gt; delimiter //</div><div class="line">  </div><div class="line">              mysql&gt; CREATE FUNCTION hello (s CHAR(20)) RETURNS CHAR(50)</div><div class="line">                  -&gt; RETURN CONCAT('Hello, ',s,'!');</div><div class="line">                  -&gt; //</div><div class="line">              Query OK, 0 rows affected (0.00 sec)</div><div class="line">              </div><div class="line">              mysql&gt; delimiter ;</div><div class="line">              </div><div class="line">              mysql&gt; SELECT hello('world');</div><div class="line">              +<span class="comment">----------------+</span></div><div class="line">              | hello('world') |</div><div class="line">              +<span class="comment">----------------+</span></div><div class="line">              | Hello, world!  |</div><div class="line">              +<span class="comment">----------------+</span></div><div class="line">              1 row in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</div><div class="line">  <span class="number">4</span>) 触发器</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oupkqj7fk.bkt.clouddn.com/wechatpay.jpg" alt="imxintian WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oupkqj7fk.bkt.clouddn.com/alipay-1.jpg" alt="imxintian Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/16/hadoop/" rel="next" title="hadoop 面试">
+                <i class="fa fa-chevron-left"></i> hadoop 面试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微薄</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/me.jpg"
+               alt="imxintian" />
+          <p class="site-author-name" itemprop="name">imxintian</p>
+           
+              <p class="site-description motion-element" itemprop="description">Standing on the shoulders of giants</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/imxintian" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://staroon.pro/" title="山小杰的博客" target="_blank">山小杰的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sniperkaka.com/" title="卡卡大魔王" target="_blank">卡卡大魔王</a>
+                </li>
+              
+
+            </ul>
+              <a title="偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+ 
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+ 
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()'><i class="fa fa-music"></i> High</a>
+          </div>
+        
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=216  height=86 src="//music.163.com/outchain/player?type=1&id=34976465&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-总结"><span class="nav-number">1.</span> <span class="nav-text">mysql 总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始数据库"><span class="nav-number">1.2.</span> <span class="nav-text">初始数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库管理系统-Database-Management-System）"><span class="nav-number">1.3.</span> <span class="nav-text">数据库管理系统 (Database Management System）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-简介"><span class="nav-number">1.4.</span> <span class="nav-text">mysql 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构化查询语句分类"><span class="nav-number">1.5.</span> <span class="nav-text">结构化查询语句分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表语句"><span class="nav-number">1.6.</span> <span class="nav-text">创建表语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.7.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DQL精讲"><span class="nav-number">1.8.</span> <span class="nav-text">DQL精讲</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通查询-select"><span class="nav-number">1.8.1.</span> <span class="nav-text">1. 普通查询 select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-条件查询"><span class="nav-number">1.8.2.</span> <span class="nav-text">2. 条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-模糊查询-使用like-0或多个字符-一个字符"><span class="nav-number">1.8.3.</span> <span class="nav-text">3. 模糊查询 使用like , %:0或多个字符 ,  _ :一个字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-排序查询-order-by-字段名-asc-desc"><span class="nav-number">1.8.4.</span> <span class="nav-text">4. 排序查询(order by 字段名 asc|desc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用聚合函数"><span class="nav-number">1.8.5.</span> <span class="nav-text">6. 使用聚合函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.9.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外键约束"><span class="nav-number">1.10.</span> <span class="nav-text">外键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表与表之间的关系"><span class="nav-number">1.11.</span> <span class="nav-text">表与表之间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合测试"><span class="nav-number">1.12.</span> <span class="nav-text">综合测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库备份"><span class="nav-number">1.13.</span> <span class="nav-text">数据库备份()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-触发器-函数-存储过程"><span class="nav-number">1.14.</span> <span class="nav-text">视图/触发器/函数/存储过程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imxintian</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytdGEneX';
+      var conf = '0535beb8deee7d63d19e52776eab776f';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("dS7QS5mCqhzL13JddyLy53C5-gzGzoHsz", "0rM95ocPp551WkLzbseiCUVb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
