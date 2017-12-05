@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="MyBlog">
 <meta property="og:description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-05T13:10:02.104Z">
+<meta property="og:updated_time" content="2017-12-05T13:25:06.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop 分布式文件系统">
 <meta name="twitter:description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
@@ -494,7 +494,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 </ol>
 <p>每个磁盘都有默认的数据块大小，这是磁盘进行数据读/写的最小单位。构建与单个磁盘之上的文件系统通过磁盘块来管理该文件系统的块，该文件系统的大小可以是磁盘块的整数倍。文件系统块一般为几千字节，而磁盘块一般为512字节。<strong>HDFS同样也有块的概念，但是大得多，默认是128MB</strong>。HDFS 上的文件也被划分为块大小的多个分块，作为独立的存储单元。但不同的是 <em>HDFS中小于一个块大小的文件不会占据整个空间（例如，当一个1MB的文件存储在一个128MB的块中，文件只使用1MB的磁盘空间，而不是128MB）</em></p>
 <ol>
-<li><h2 id="对分布式文件系统中的块进行抽象有什么好处？"><a href="#对分布式文件系统中的块进行抽象有什么好处？" class="headerlink" title="对分布式文件系统中的块进行抽象有什么好处？"></a>对分布式文件系统中的块进行抽象有什么好处？</h2><ol>
+<li><h2 id="对分布式文件系统中的块进行抽象有什么好处"><a href="#对分布式文件系统中的块进行抽象有什么好处" class="headerlink" title="对分布式文件系统中的块进行抽象有什么好处?"></a>对分布式文件系统中的块进行抽象有什么好处?</h2><ol>
 <li>一个文件的大小可以大于网络中任意的一个磁盘容量。文件的所有块并不需要存储在同一个磁盘上，因此，他们可以利用集群上的任意一个磁盘进行存储。</li>
 <li>使用抽象快而非整个文件作为存储单元，大大简化了存储子系统的设计。简化是所有系统的目标，但是对于故障种类繁多的分布式系统来说尤为重要。<strong>将存储子系统的处理对象设为块，可简化存储管理，同时消除对元数据的顾虑。</strong></li>
 <li>还非常适合用于数据备份进而提供数据容错能力和提高可用性。</li>
@@ -515,9 +515,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 </ul>
 <ol>
 <li><h2 id="没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"><a href="#没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？" class="headerlink" title="没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"></a>没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？</h2><ol>
-<li><strong>备份那些组成文件系统元数据持久状态的文件</strong>Hadoop 可以通过配<br> 理置使namenode 在多个文件系统上保存元数据的持久状态。这些写操作是实时同步的，且是原子操作。一般的配置是，将持久状态写人本地磁盘的同时，写人一个<br> 远程挂载的网络文件系统(NFS)。<ol>
-<li><strong>运行一个辅助namenode,但它不能被用作namenode.这个辅助namenode的重要作用是定期合并编辑日     志与命名空间镜像，以防止编辑日志过大。</strong>这个辅助namenode一般在另一台单独的物理计算机上运       行，因为它需要占用大量CPU 时间，并且需要与namenode一样多的内存来执行合并操作。它会保存合<br>并后的命名空间镜像的副本，并在namenode发生故障时启用。<em><em>但是辅助namenode 保存的状态总是带于主节点，所以在主节点全部失效时，难免会丢失部分数据。在这种情况下，一般把存储在NFS上namenode元数据复制到辅助nanenode并作为新的namende 运行。</em></em></li>
-</ol>
+<li><p><strong>备份那些组成文件系统元数据持久状态的文件</strong>Hadoop 可以通过配<br> 理置使namenode 在多个文件系统上保存元数据的持久状态。这些写操作是实时同步的，且是原子操作。一般的配置是，将持久状态写人本地磁盘的同时，写人一个<br> 远程挂载的网络文件系统(NFS)。</p>
+</li>
+<li><p><strong>运行一个辅助namenode,但它不能被用作namenode.这个辅助namenode的重   要作用是定期合并编辑日志与命名空间镜像，以防止编辑日志过大。</strong>这个辅   助namenode一般在另一台单独的物理计算机上运行，因为它需要占用大量CPU   时间，并且需要与namenode一样多的内存来执行合并操作。它会保存合<br>并后的命名空间镜像的副本，并在namenode发生故障时启用。<em><em>但是辅助namenode 保存的状态总是带于主节点，所以在主节点全部失效时，难免会丢失部分数据。在这种情况下，一般把存储在NFS上namenode元数据复制到辅助nanenode并作为新的namende 运行。</em></em></p>
 </li>
 </ol>
 </li>
@@ -938,7 +938,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop-分布式文件系统"><span class="nav-number"></span> <span class="nav-text">Hadoop 分布式文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-自带一个称为hdfs的分布式文件系统，即-Hadoop-Distributed-Filesystem-在非正式文档或旧文档以及配置文件中，有时也简称为DFS-他们指的是一回事。"><span class="nav-number">1.</span> <span class="nav-text">Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS的设计"><span class="nav-number">2.</span> <span class="nav-text">HDFS的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS概念"><span class="nav-number">3.</span> <span class="nav-text">HDFS概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据块"><span class="nav-number">4.</span> <span class="nav-text">数据块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对分布式文件系统中的块进行抽象有什么好处？"><span class="nav-number">5.</span> <span class="nav-text">对分布式文件系统中的块进行抽象有什么好处？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Namenode-和-DataNode"><span class="nav-number">6.</span> <span class="nav-text">Namenode 和 DataNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"><span class="nav-number">7.</span> <span class="nav-text">没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop-分布式文件系统"><span class="nav-number"></span> <span class="nav-text">Hadoop 分布式文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-自带一个称为hdfs的分布式文件系统，即-Hadoop-Distributed-Filesystem-在非正式文档或旧文档以及配置文件中，有时也简称为DFS-他们指的是一回事。"><span class="nav-number">1.</span> <span class="nav-text">Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS的设计"><span class="nav-number">2.</span> <span class="nav-text">HDFS的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS概念"><span class="nav-number">3.</span> <span class="nav-text">HDFS概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据块"><span class="nav-number">4.</span> <span class="nav-text">数据块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对分布式文件系统中的块进行抽象有什么好处"><span class="nav-number">5.</span> <span class="nav-text">对分布式文件系统中的块进行抽象有什么好处?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Namenode-和-DataNode"><span class="nav-number">6.</span> <span class="nav-text">Namenode 和 DataNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"><span class="nav-number">7.</span> <span class="nav-text">没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？</span></a></li></ol></div>
             
 
           </div>
