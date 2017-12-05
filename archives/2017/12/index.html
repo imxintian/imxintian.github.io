@@ -97,7 +97,7 @@
 <meta name="description" content="Standing on the shoulders of giants">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MyBlog">
-<meta property="og:url" content="http://yoursite.com/categories/database/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
 <meta property="og:site_name" content="MyBlog">
 <meta property="og:description" content="Standing on the shoulders of giants">
 <meta property="og:locale" content="zh-Hans">
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/database/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2017/12/"/>
 
 
 
 
 
-  <title>分类: 数据库 | MyBlog</title>
+  <title>归档 | MyBlog</title>
   
 
 
@@ -180,7 +180,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -321,15 +321,33 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
   
   
   
-  <div class="post-block category">
-
+  <div class="post-block archive">
     <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>数据库<small>分类</small>
-        </h1>
-      </div>
+      <span class="archive-move-on"></span>
+
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 9 篇日志。 继续努力。
+      </span>
 
       
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+          </div>
+        
+        
+
         
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -337,9 +355,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/11/28/mysql/" itemprop="url">
+            <a class="post-title-link" href="/2017/12/05/hadoop-dfs/" itemprop="url">
               
-                <span itemprop="name">mysql 总结</span>
+                <span itemprop="name">Hadoop 分布式文件系统</span>
               
             </a>
         
@@ -347,9 +365,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-28T22:06:44+08:00"
-              content="2017-11-28" >
-          11-28
+              datetime="2017-12-05T20:57:45+08:00"
+              content="2017-12-05" >
+          12-05
         </time>
       </div>
 
@@ -357,9 +375,10 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
   </article>
 
 
-      
-    </div>
 
+      
+
+    </div>
   </div>
   
   
@@ -766,10 +785,12 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
   
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
+
 
   
 
