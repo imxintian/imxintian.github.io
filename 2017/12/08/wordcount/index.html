@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hadoop," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="Standing on the shoulders of giants">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBlog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/10/index.html">
+<meta name="description" content="First wordcount写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  引言承接上篇，Hadoop 伪分布式搭建apache YARN 是Hadoop 的集群资源管理系统，YARN 的引入最初也是为了改善 mapreduce 的实现，但他具有足够的通用性，同样支持其他的分布式计算模式。本节将介绍yarn的基本配置，以及第一个wordco">
+<meta name="keywords" content="hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wordcount">
+<meta property="og:url" content="http://yoursite.com/2017/12/08/wordcount/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="Standing on the shoulders of giants">
+<meta property="og:description" content="First wordcount写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  引言承接上篇，Hadoop 伪分布式搭建apache YARN 是Hadoop 的集群资源管理系统，YARN 的引入最初也是为了改善 mapreduce 的实现，但他具有足够的通用性，同样支持其他的分布式计算模式。本节将介绍yarn的基本配置，以及第一个wordco">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-08T13:01:07.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBlog">
-<meta name="twitter:description" content="Standing on the shoulders of giants">
+<meta name="twitter:title" content="wordcount">
+<meta name="twitter:description" content="First wordcount写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  引言承接上篇，Hadoop 伪分布式搭建apache YARN 是Hadoop 的集群资源管理系统，YARN 的引入最初也是为了改善 mapreduce 的实现，但他具有足够的通用性，同样支持其他的分布式计算模式。本节将介绍yarn的基本配置，以及第一个wordco">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/10/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/08/wordcount/"/>
 
 
 
 
 
-  <title>归档 | MyBlog</title>
+  <title>wordcount | MyBlog</title>
   
 
 
@@ -180,7 +182,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,111 +320,292 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 10 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/08/wordcount/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="imxintian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/10/22/hadoop-pseudo/" itemprop="url">
-              
-                <span itemprop="name">Hadoop 伪分布式搭建</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">wordcount</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-22T20:00:16+08:00"
-              content="2017-10-22" >
-          10-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T20:55:44+08:00">
+                2017-12-08
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-08T21:01:07+08:00">
+                2017-12-08
+              </time>
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bigdata/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/12/08/wordcount/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/08/wordcount/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/12/08/wordcount/" class="leancloud_visitors" data-flag-title="wordcount">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/15/githubConfig/" itemprop="url">
-              
-                <span itemprop="name">githubConfig</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-15T16:21:08+08:00"
-              content="2017-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h1 id="First-wordcount"><a href="#First-wordcount" class="headerlink" title="First wordcount"></a>First wordcount</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><ul>
+<li>写作不易，如果感觉有用，请打赏作者一杯咖啡~</li>
+<li>转载请联系作者，或者注明作者，以及原文链接！</li>
+</ul>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>承接上篇，<a href="http://imxintian.com/2017/10/22/hadoop-pseudo/#more" target="_blank" rel="external">Hadoop 伪分布式搭建</a><br>apache YARN 是Hadoop 的集群资源管理系统，YARN 的引入最初也是为了改善 mapreduce 的实现，<br>但他具有足够的通用性，同样支持其他的分布式计算模式。本节将介绍yarn的基本配置，以及第一个<br>wordcount 案例。</p>
+<h2 id="yarn-的配置"><a href="#yarn-的配置" class="headerlink" title="yarn 的配置"></a>yarn 的配置</h2><ol>
+<li><p>修改hadoop/etc/hadoop/mapred-site.xml文件<br>指定mapreduce计算模型运行在yarn上。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>修改hadoop/etc/hadoop/yarn-site.xml文件<br>指定启动运行mapreduce上的nodemanager的运行服务</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>指定resourcemanager主节点机器，可选项，不一定要配置，默认是本机，但是    指定了之后，在其他机器上启动，就会报错</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>bigdata-4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="wordcount-案例"><a href="#wordcount-案例" class="headerlink" title="wordcount 案例"></a>wordcount 案例</h2><ol>
+<li><p>启动yarn</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sbin/yarn-daemon.sh start resourcemanager</div><div class="line">sbin/yarn-daemon.sh start nodemanager</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看yarn外部web界面bigdata-4或者IP地址 跟上8088端口号，<br>外部通信http</p>
+</li>
+<li><p>测试环境，运行一个mapreduce，wordcount单词统计案例</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">一个mapreduce分为五个阶段</div><div class="line">	input -&gt; map() -&gt; shuffle -&gt;  reduce() -&gt; output</div><div class="line">	步骤：将mapreduce运行在yarn上，需要打jar包</div><div class="line">			新建一个数据文件，用于测试mapreduce</div><div class="line">			将数据文件从本地上传到HDFS</div><div class="line">			bin/hdfs dfs -put word.txt /user/wxt/wxt_test/input</div><div class="line">			使用官方提供的示例jar包：share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar</div></pre></td></tr></table></figure>
+<ol>
+<li><p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar  wordcount /user/wxt/wxt_test/input/word.txt /output/word.txt</div></pre></td></tr></table></figure>
+</li>
+<li><p>成功运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">17/12/08 19:55:40 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</div><div class="line">[wxt@bigdata-4 hadoop-2.5.0]$ bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar  wordcount /user/wxt/wxt_test/input/word.txt /output/word.txt</div><div class="line">17/12/08 19:59:09 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</div><div class="line">17/12/08 19:59:11 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032</div><div class="line">17/12/08 19:59:12 INFO input.FileInputFormat: Total input paths to process : 1</div><div class="line">17/12/08 19:59:13 INFO mapreduce.JobSubmitter: number of splits:1</div><div class="line">17/12/08 19:59:13 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1512719236321_0001</div><div class="line">17/12/08 19:59:14 INFO impl.YarnClientImpl: Submitted application application_1512719236321_0001</div><div class="line">17/12/08 19:59:14 INFO mapreduce.Job: The url to track the job: http://bigdata-4:8088/proxy/application_1512719236321_0001/</div><div class="line">17/12/08 19:59:14 INFO mapreduce.Job: Running job: job_1512719236321_0001</div><div class="line">17/12/08 19:59:32 INFO mapreduce.Job: Job job_1512719236321_0001 running in uber mode : false</div><div class="line">17/12/08 19:59:32 INFO mapreduce.Job:  map 0% reduce 0%</div><div class="line">17/12/08 19:59:52 INFO mapreduce.Job:  map 100% reduce 0%</div><div class="line">17/12/08 20:00:12 INFO mapreduce.Job:  map 100% reduce 100%</div><div class="line">17/12/08 20:00:13 INFO mapreduce.Job: Job job_1512719236321_0001 completed successfully</div><div class="line">17/12/08 20:00:13 INFO mapreduce.Job: Counters: 49</div><div class="line">	File System Counters</div><div class="line">		FILE: Number of bytes read=552</div><div class="line">		FILE: Number of bytes written=195039</div><div class="line">		FILE: Number of read operations=0</div><div class="line">		FILE: Number of large read operations=0</div><div class="line">		FILE: Number of write operations=0</div><div class="line">		HDFS: Number of bytes read=431</div><div class="line">		HDFS: Number of bytes written=354</div><div class="line">		HDFS: Number of read operations=6</div><div class="line">		HDFS: Number of large read operations=0</div><div class="line">		HDFS: Number of write operations=2</div><div class="line">	Job Counters </div><div class="line">		Launched map tasks=1</div><div class="line">		Launched reduce tasks=1</div><div class="line">		Data-local map tasks=1</div><div class="line">		Total time spent by all maps in occupied slots (ms)=17464</div><div class="line">		Total time spent by all reduces in occupied slots (ms)=17724</div><div class="line">		Total time spent by all map tasks (ms)=17464</div><div class="line">		Total time spent by all reduce tasks (ms)=17724</div><div class="line">		Total vcore-seconds taken by all map tasks=17464</div><div class="line">		Total vcore-seconds taken by all reduce tasks=17724</div><div class="line">		Total megabyte-seconds taken by all map tasks=17883136</div><div class="line">		Total megabyte-seconds taken by all reduce tasks=18149376</div><div class="line">	Map-Reduce Framework</div><div class="line">		Map input records=1</div><div class="line">		Map output records=61</div><div class="line">		Map output bytes=557</div><div class="line">		Map output materialized bytes=552</div><div class="line">		Input split bytes=119</div><div class="line">		Combine input records=61</div><div class="line">		Combine output records=48</div><div class="line">		Reduce input groups=48</div><div class="line">		Reduce shuffle bytes=552</div><div class="line">		Reduce input records=48</div><div class="line">		Reduce output records=48</div><div class="line">		Spilled Records=96</div><div class="line">		Shuffled Maps =1</div><div class="line">		Failed Shuffles=0</div><div class="line">		Merged Map outputs=1</div><div class="line">		GC time elapsed (ms)=175</div><div class="line">		CPU time spent (ms)=2240</div><div class="line">		Physical memory (bytes) snapshot=309456896</div><div class="line">		Virtual memory (bytes) snapshot=1680064512</div><div class="line">		Total committed heap usage (bytes)=136450048</div><div class="line">	Shuffle Errors</div><div class="line">		BAD_ID=0</div><div class="line">		CONNECTION=0</div><div class="line">		IO_ERROR=0</div><div class="line">		WRONG_LENGTH=0</div><div class="line">		WRONG_MAP=0</div><div class="line">		WRONG_REDUCE=0</div><div class="line">	File Input Format Counters </div><div class="line">		Bytes Read=312</div><div class="line">	File Output Format Counters </div><div class="line">		Bytes Written=354</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="致此，First-WordCount-运行结束。"><a href="#致此，First-WordCount-运行结束。" class="headerlink" title="致此，First WordCount 运行结束。"></a>致此，First WordCount 运行结束。</h2>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oupkqj7fk.bkt.clouddn.com/wechatpay.jpg" alt="imxintian WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oupkqj7fk.bkt.clouddn.com/alipay-1.jpg" alt="imxintian Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/05/hadoop-dfs/" rel="next" title="Hadoop 分布式文件系统">
+                <i class="fa fa-chevron-left"></i> Hadoop 分布式文件系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微薄</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -430,6 +613,12 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -452,8 +641,17 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -701,6 +899,22 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#First-wordcount"><span class="nav-number">1.</span> <span class="nav-text">First wordcount</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yarn-的配置"><span class="nav-number">1.3.</span> <span class="nav-text">yarn 的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wordcount-案例"><span class="nav-number">1.4.</span> <span class="nav-text">wordcount 案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#致此，First-WordCount-运行结束。"><span class="nav-number">1.5.</span> <span class="nav-text">致此，First WordCount 运行结束。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -822,11 +1036,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
