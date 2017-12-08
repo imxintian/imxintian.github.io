@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="MyBlog">
 <meta property="og:description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-05T13:33:41.792Z">
+<meta property="og:updated_time" content="2017-12-08T13:17:53.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop 分布式文件系统">
 <meta name="twitter:description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
@@ -379,8 +379,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-05T21:33:41+08:00">
-                2017-12-05
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-08T21:17:53+08:00">
+                2017-12-08
               </time>
             
           </span>
@@ -528,7 +528,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 <li><h2 id="没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"><a href="#没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？" class="headerlink" title="没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"></a>没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？</h2><ol>
 <li><p><strong>备份那些组成文件系统元数据持久状态的文件</strong>Hadoop 可以通过配<br> 理置使namenode 在多个文件系统上保存元数据的持久状态。这些写操作是实时同步的，且是原子操作。一般的配置是，将持久状态写人本地磁盘的同时，写人一个<br> 远程挂载的网络文件系统(NFS)。</p>
 </li>
-<li><p><strong>运行一个辅助namenode,但它不能被用作namenode.这个辅助namenode的重   要作用是定期合并编辑日志与命名空间镜像，以防止编辑日志过大。</strong>这个辅   助namenode一般在另一台单独的物理计算机上运行，因为它需要占用大量CPU   时间，并且需要与namenode一样多的内存来执行合并操作。它会保存合<br>并后的命名空间镜像的副本，并在namenode发生故障时启用。<em><em>但是辅助namenode 保存的状态总是带于主节点，所以在主节点全部失效时，难免会丢失部分数据。在这种情况下，一般把存储在NFS上namenode元数据复制到辅助nanenode并作为新的namende 运行。</em></em></p>
+<li><p><strong>运行一个辅助namenode,但它不能被用作namenode.这个辅助namenode的重   要作用是定期合并编辑日志与命名空间镜像，以防止编辑日志过大。</strong>这个辅   助namenode一般在另一台单独的物理计算机上运行，因为它需要占用大量CPU   时间，并且需要与namenode一样多的内存来执行合并操作。它会保存合<br>并后的命名空间镜像的副本，并在namenode发生故障时启用。<em><em>但是辅助namenode 保存的状态总是带于主节点，所以在主节点全部失效时，难免会丢失部分数据。在这种情况下，一般把存储在NFS上namenode元数据复制到辅助namenode并作为新的namenode 运行。</em></em></p>
 </li>
 </ol>
 </li>
