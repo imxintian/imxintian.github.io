@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hadoop," />
+  <meta name="keywords" content="hive," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
-<meta name="keywords" content="hadoop">
+<meta name="description" content="hive 常用函数及其查询 hive常用的自带函数及查询 show  functions;    查询hive自带的函数  —查看某一个函数的具体用法；  desc function extended 函数名称; 栗子：desc function extended max;  聚合函数  max(),min(),sum(),count(),avg()… eg:基于emp,dept表计算每个部分的工">
+<meta name="keywords" content="hive">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hadoop 分布式文件系统">
-<meta property="og:url" content="http://yoursite.com/2017/12/05/hadoop-dfs/index.html">
+<meta property="og:title" content="hive总结(二)">
+<meta property="og:url" content="http://yoursite.com/2018/03/12/hive-2/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
+<meta property="og:description" content="hive 常用函数及其查询 hive常用的自带函数及查询 show  functions;    查询hive自带的函数  —查看某一个函数的具体用法；  desc function extended 函数名称; 栗子：desc function extended max;  聚合函数  max(),min(),sum(),count(),avg()… eg:基于emp,dept表计算每个部分的工">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-08T13:17:53.912Z">
+<meta property="og:updated_time" content="2018-03-12T14:42:05.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hadoop 分布式文件系统">
-<meta name="twitter:description" content="写在前面 写作不易，如果感觉有用，请打赏作者一杯咖啡~ 转载请联系作者，或者注明作者，以及原文链接！  Hadoop 分布式文件系统Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。HDFS的设计HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上">
+<meta name="twitter:title" content="hive总结(二)">
+<meta name="twitter:description" content="hive 常用函数及其查询 hive常用的自带函数及查询 show  functions;    查询hive自带的函数  —查看某一个函数的具体用法；  desc function extended 函数名称; 栗子：desc function extended max;  聚合函数  max(),min(),sum(),count(),avg()… eg:基于emp,dept表计算每个部分的工">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/05/hadoop-dfs/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/12/hive-2/"/>
 
 
 
 
 
-  <title>Hadoop 分布式文件系统 | MyBlog</title>
+  <title>hive总结(二) | MyBlog</title>
   
 
 
@@ -334,7 +334,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/hadoop-dfs/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/hive-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="imxintian">
@@ -351,7 +351,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hadoop 分布式文件系统</h1>
+          <h1 class="post-title" itemprop="name headline">hive总结(二)</h1>
         
 
         <div class="post-meta">
@@ -363,8 +363,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T20:57:45+08:00">
-                2017-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T22:40:26+08:00">
+                2018-03-12
               </time>
             
 
@@ -379,8 +379,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-08T21:17:53+08:00">
-                2017-12-08
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-12T22:42:05+08:00">
+                2018-03-12
               </time>
             
           </span>
@@ -417,8 +417,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/12/05/hadoop-dfs/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/05/hadoop-dfs/" itemprop="commentsCount"></span>
+                <a href="/2018/03/12/hive-2/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/12/hive-2/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -426,7 +426,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
 
           
           
-             <span id="/2017/12/05/hadoop-dfs/" class="leancloud_visitors" data-flag-title="Hadoop 分布式文件系统">
+             <span id="/2018/03/12/hive-2/" class="leancloud_visitors" data-flag-title="hive总结(二)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -457,83 +457,124 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
       
 
       
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><ul>
-<li>写作不易，如果感觉有用，请打赏作者一杯咖啡~</li>
-<li>转载请联系作者，或者注明作者，以及原文链接！</li>
-</ul>
-<h1 id="Hadoop-分布式文件系统"><a href="#Hadoop-分布式文件系统" class="headerlink" title="Hadoop 分布式文件系统"></a>Hadoop 分布式文件系统</h1><h2 id="Hadoop-自带一个称为hdfs的分布式文件系统，即-Hadoop-Distributed-Filesystem-在非正式文档或旧文档以及配置文件中，有时也简称为DFS-他们指的是一回事。"><a href="#Hadoop-自带一个称为hdfs的分布式文件系统，即-Hadoop-Distributed-Filesystem-在非正式文档或旧文档以及配置文件中，有时也简称为DFS-他们指的是一回事。" class="headerlink" title="Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。"></a>Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。</h2><h2 id="HDFS的设计"><a href="#HDFS的设计" class="headerlink" title="HDFS的设计"></a>HDFS的设计</h2><p>HDFS以流式数据访问模式来存储超大文件，运行于商用软件集群上。具体如下。</p>
-<ul>
-<li><em>超大文件</em><ul>
-<li>这里是指具有几百MB,几百GB甚至几百TB大小的文件。</li>
-</ul>
+        <h2 id="hive-常用函数及其查询"><a href="#hive-常用函数及其查询" class="headerlink" title="hive 常用函数及其查询"></a>hive 常用函数及其查询</h2><ul>
+<li><h3 id="hive常用的自带函数及查询"><a href="#hive常用的自带函数及查询" class="headerlink" title="hive常用的自带函数及查询"></a>hive常用的自带函数及查询</h3><ol>
+<li><p>show  functions; </p>
+<p>  查询hive自带的函数</p>
 </li>
-<li><em>流式数据访问</em><ul>
-<li>hdfs的构建思路是这样的：<strong>一次写入，多次读取是最高效的的访问模式</strong>。数据通常有数据源生成或者复制而来，接着长时间在此数据集上进行各种分析。每次分析都将涉及该数据集的大部分数据甚至全部。因此读取整个数据集的时间延迟比读取第一条记录的延迟更重要。</li>
-</ul>
+<li><p>—查看某一个函数的具体用法；</p>
+<p> desc function extended 函数名称;<br> 栗子：desc function extended max;</p>
 </li>
-<li><em>商用软件</em><ul>
-<li>hadoop 并不需要运行昂贵且高可靠的硬件上。他的设计运行在商用硬件的集群上的。</li>
-</ul>
-</li>
-<li><em>低时间延迟的数据访问</em><ul>
-<li>要求低时间数据访问的应用，例如几十毫秒范围，不适合在hdfs上运行。记住，<strong>HDFS是为高数据吞吐量应用优化的，这可能会以提高时间延为代价。</strong></li>
-</ul>
-</li>
-<li><em>大量的小文件</em><ul>
-<li>由于namenode将文件系统的数据存储在内存中，因此该文件系统所能存储的文件总数受限于namenode的内存容量。所以不适用于<strong><em>大量的小文件</em></strong>。</li>
-</ul>
-</li>
-<li><em>多用户写入，任意修改文件</em><ul>
-<li>hdfs 中的文件写入只支持单个写入者，而且写操作总是以“只添加”方式在文件末尾写数据。它不支持多个写入者的操作，也不支持在文件的任意位置进行修改。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>总结：<br>Hadoop适合于：</p>
-<ul>
-<li>1、超大数据的计算；</li>
-<li>2、一次写入、多次读取的模式；</li>
-<li>3、可以跑在普通的硬件上。</li>
-</ul>
-<p>Hadoop不适合：</p>
-<ul>
-<li>1、低延迟的数据访问，它是为高数据吞吐量应用优化的；</li>
-<li>2、大量的小文件</li>
-<li>3、多用户写入，任意修改文件。</li>
-</ul>
-<h2 id="HDFS概念"><a href="#HDFS概念" class="headerlink" title="HDFS概念"></a>HDFS概念</h2><ul>
-<li><h2 id="数据块"><a href="#数据块" class="headerlink" title="数据块"></a>数据块</h2></li>
-</ul>
-<p>每个磁盘都有默认的数据块大小，这是磁盘进行数据读/写的最小单位。构建与单个磁盘之上的文件系统通过磁盘块来管理该文件系统的块，该文件系统的大小可以是磁盘块的整数倍。文件系统块一般为几千字节，而磁盘块一般为512字节。<strong>HDFS同样也有块的概念，但是大得多，默认是128MB</strong>。HDFS 上的文件也被划分为块大小的多个分块，作为独立的存储单元。但不同的是 <em>HDFS中小于一个块大小的文件不会占据整个空间（例如，当一个1MB的文件存储在一个128MB的块中，文件只使用1MB的磁盘空间，而不是128MB）</em></p>
-<ul>
-<li><h2 id="对分布式文件系统中的块进行抽象有什么好处"><a href="#对分布式文件系统中的块进行抽象有什么好处" class="headerlink" title="对分布式文件系统中的块进行抽象有什么好处?"></a>对分布式文件系统中的块进行抽象有什么好处?</h2><ol>
-<li>一个文件的大小可以大于网络中任意的一个磁盘容量。文件的所有块并不需要存储在同一个磁盘上，因此，他们可以利用集群上的任意一个磁盘进行存储。</li>
-<li>使用抽象快而非整个文件作为存储单元，大大简化了存储子系统的设计。简化是所有系统的目标，但是对于故障种类繁多的分布式系统来说尤为重要。<strong>将存储子系统的处理对象设为块，可简化存储管理，同时消除对元数据的顾虑。</strong></li>
-<li>还非常适合用于数据备份进而提供数据容错能力和提高可用性。</li>
-</ol>
-</li>
-<li><h2 id="Namenode-和-DataNode"><a href="#Namenode-和-DataNode" class="headerlink" title="Namenode 和 DataNode"></a>Namenode 和 DataNode</h2></li>
-</ul>
-<p>HDFS 集群有两类节点以管理节点-工作节点模式运行，即个namenode(管理节<br>点)和多个datanode 工作节点。</p>
-<ul>
-<li>Namenode <ul>
-<li><em>管理文件系统的命名空间，它维护着文件系统树及整棵树内的所有文件和目录</em>。这些信息以两个文件形   式永人保存在本地做盘上: <strong>命名空间镜像文件和编辑日志文件</strong></li>
-</ul>
-</li>
-<li><p>DataNode</p>
-<ul>
-<li>是文件系统的工作节点。它们根据需要存储并检索数据块（受客户端或Namenode 调度）并且<br>定期向Namenode发送它们所存储的块列表。</li>
-</ul>
-</li>
-<li><h2 id="没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"><a href="#没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？" class="headerlink" title="没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"></a>没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？</h2><ol>
-<li><p><strong>备份那些组成文件系统元数据持久状态的文件</strong>Hadoop 可以通过配<br> 理置使namenode 在多个文件系统上保存元数据的持久状态。这些写操作是实时同步的，且是原子操作。一般的配置是，将持久状态写人本地磁盘的同时，写人一个<br> 远程挂载的网络文件系统(NFS)。</p>
-</li>
-<li><p><strong>运行一个辅助namenode,但它不能被用作namenode.这个辅助namenode的重   要作用是定期合并编辑日志与命名空间镜像，以防止编辑日志过大。</strong>这个辅   助namenode一般在另一台单独的物理计算机上运行，因为它需要占用大量CPU   时间，并且需要与namenode一样多的内存来执行合并操作。它会保存合<br>并后的命名空间镜像的副本，并在namenode发生故障时启用。<em><em>但是辅助namenode 保存的状态总是带于主节点，所以在主节点全部失效时，难免会丢失部分数据。在这种情况下，一般把存储在NFS上namenode元数据复制到辅助namenode并作为新的namenode 运行。</em></em></p>
+<li><p>聚合函数</p>
+<p> max(),min(),sum(),count(),avg()…</p>
+<p>eg:基于emp,dept表计算每个部分的工资总数，并且显示部门的名称</p>
 </li>
 </ol>
 </li>
+<li><h3 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h3><ul>
+<li><p>使用group by</p>
+<ul>
+<li><p>如果字段出现在select中,<strong><em>那么这些字段必须出现在group by里面</em></strong>，除非你用聚合函数修饰</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> deptno,<span class="keyword">sum</span>(sal) <span class="keyword">from</span> emp e <span class="keyword">inner</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> e.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno;</div><div class="line"></div><div class="line"><span class="keyword">select</span> e.deptno,d.dname,<span class="keyword">sum</span>(sal) <span class="keyword">from</span> emp e <span class="keyword">inner</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> e.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno;</div><div class="line">FAILED: SemanticException [Error 10025]: Line 1:16 Expression not in GROUP BY key 'dname'</div><div class="line"></div><div class="line"><span class="keyword">select</span> e.deptno,d.dname,<span class="keyword">sum</span>(sal) <span class="keyword">from</span> emp e <span class="keyword">inner</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> e.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno,d.dname;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<hr>
+</li>
+<li><p>having条件  –使用where就会报错</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> e.deptno,dname,<span class="keyword">sum</span>(sal) <span class="keyword">from</span> emp e <span class="keyword">inner</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> e.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno,d.dname <span class="keyword">where</span> e.deptno=<span class="number">10</span>;</div><div class="line">FAILED: ParseException line 1:99 missing EOF at 'where' near 'deptno'</div><div class="line"></div><div class="line"><span class="keyword">select</span> e.deptno,dname,<span class="keyword">sum</span>(sal) <span class="keyword">from</span> emp e <span class="keyword">inner</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> e.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno,d.dname <span class="keyword">having</span> e.deptno=<span class="number">10</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>rand() –取随机数，范围0-1</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> 语法： rand()</div><div class="line">    rand(int exer)</div><div class="line">    <span class="keyword">select</span> <span class="keyword">rand</span>(); 0.6549622205135005</div><div class="line">    <span class="keyword">select</span> <span class="keyword">rand</span>(); 0.5992520662072582</div><div class="line">    <span class="keyword">select</span> <span class="keyword">rand</span>(<span class="number">1</span>); 0.7308781907032909</div><div class="line">    <span class="keyword">select</span> <span class="keyword">rand</span>(<span class="number">2</span>); 0.7311469360199058</div><div class="line">返回值是：double类型</div></pre></td></tr></table></figure>
+</li>
+<li><p>concat()  –字段拼接</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(empno,ename) noname  <span class="keyword">from</span> emp;</div><div class="line">noname</div><div class="line">7369SMITH</div><div class="line">7499ALLEN</div><div class="line">7521WARD</div><div class="line">7566JONES</div><div class="line">7654MARTIN</div><div class="line">7698BLAKE</div><div class="line">7782CLARK</div><div class="line">7788SCOTT</div><div class="line">7839KING</div><div class="line">7844TURNER</div><div class="line">7876ADAMS</div><div class="line">7900JAMES</div><div class="line">7902FORD</div><div class="line">7934MILLER</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- substr()  --字段抽取
+
+     <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(hiredate,<span class="number">1</span>,<span class="number">4</span>) <span class="keyword">from</span> emp;</div><div class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(hiredate,<span class="number">6</span>,<span class="number">2</span>) <span class="keyword">from</span> emp;</div><div class="line">第一位数表示：从第几位开始截取，第二位数字代表：步长</div></pre></td></tr></table></figure>
+
+
+- day()  --获取日期
+    &gt; select day(hiredate) from emp;
+
+- month() --获取月份
+
+- hour() --获取小时
+
+- 时间戳：从1970年1月1号-
+
+   &gt; unix_timestamp 北京时间转化成时间戳
+    `select unix_timestamp(&quot;2017-03-30 08:00:00&quot;) 1490832000`
+   &gt;  from_unixtime    时间戳转化为北京时间
+    `select from_unixtime(1490832000) 2017-03-30 08:00:00`
+
+    - 应用场景
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   浏览网页的停留时间</div><div class="line">开始浏览 2017/10/16 08:00:00</div><div class="line">离开时间 2017/10/16 08:10:00</div><div class="line">unix_timestamp(2017/10/16 08:10:00) - unix_timestamp(2017/10/16 08:00:00) </div><div class="line">得到停留的时间戳</div><div class="line">1490832000/1000/3600</div></pre></td></tr></table></figure>
+
+- cast()
+    - `select cast(1490854394123/1000 as int)  ==&gt;1490854394`
+
+- case  when ...then ...else  ...end
+    <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">        eg:根据emp表计算每个员工一个月的薪资  sal+ com</div><div class="line">        <span class="keyword">select</span> empno,sal+comm <span class="keyword">from</span> emp;</div><div class="line">        7369    NULL</div><div class="line">        7499    1900.0</div><div class="line">        7521    1750.0</div><div class="line">        7566    NULL</div><div class="line">        7654    2650.0</div><div class="line">        7698    NULL</div><div class="line">        7782    NULL</div><div class="line">        7788    NULL</div><div class="line">        7839    NULL</div><div class="line">        7844    1500.0</div><div class="line">        7876    NULL</div><div class="line">        7900    NULL</div><div class="line">        7902    NULL</div><div class="line">        7934    NULL</div><div class="line"></div><div class="line">        <span class="keyword">select</span> empno,<span class="keyword">case</span> <span class="keyword">when</span> comm <span class="keyword">is</span> <span class="literal">null</span> <span class="keyword">then</span> sal+<span class="number">0</span> <span class="keyword">else</span> sal+comm <span class="keyword">end</span> <span class="keyword">from</span> emp;</div><div class="line">        empno   _c1</div><div class="line">        7369    800.0</div><div class="line">        7499    1900.0</div><div class="line">        7521    1750.0</div><div class="line">        7566    2975.0</div><div class="line">        7654    2650.0</div><div class="line">        7698    2850.0</div><div class="line">        7782    2450.0</div><div class="line">        7788    3000.0</div><div class="line">        7839    5000.0</div><div class="line">        7844    1500.0</div><div class="line">        7876    1100.0</div><div class="line">        7900    950.0</div><div class="line">        7902    3000.0</div><div class="line">        7934    1300.0</div><div class="line">	</div><div class="line">        eg:根据emp表，对于sal小于500为down,小于800且大于500定义为middle，大于800的定义为up</div><div class="line">        <span class="keyword">select</span> empno <span class="keyword">case</span> <span class="keyword">when</span> sal&lt;<span class="number">500</span> <span class="keyword">then</span> <span class="string">'down'</span> <span class="keyword">when</span> sal&gt;<span class="number">500</span> <span class="keyword">and</span> sal&lt;<span class="number">800</span> <span class="keyword">then</span> <span class="string">'middle'</span> <span class="keyword">else</span> <span class="string">'up'</span> <span class="keyword">end</span> <span class="keyword">from</span> emp;</div><div class="line"></div><div class="line">- 【join】</div><div class="line"></div><div class="line">    - join:两个表进行连接，把两张表的一行数据整合成一行数据</div><div class="line">        - 等值(inner)join :(inner) join ..on ...(两张表中存在相同的字段)</div><div class="line">             - 栗子:`<span class="keyword">select</span> e.empno,d.dname <span class="keyword">from</span> emp e (<span class="keyword">inner</span>) <span class="keyword">join</span> dept d <span class="keyword">on</span>  e.depyno=d.deptno;`</div><div class="line"></div><div class="line">        - 左连接left join：已左边的表为主表</div><div class="line">                - 栗子: </div><div class="line"></div><div class="line">             ```sql</div><div class="line">                    <span class="keyword">select</span> e.empno,e.ename,d.deptno,d.dname <span class="keyword">from</span> emp e <span class="keyword">left</span> <span class="keyword">join</span> dept d <span class="keyword">on</span>  e.deptno=d.deptno;</div><div class="line">                    </div><div class="line">                    e.empno e.ename d.deptno        d.dname</div><div class="line">                    7369    SMITH   20      RESEARCH</div><div class="line">                    7499    ALLEN   30      SALES</div><div class="line">                    7521    WARD    30      SALES</div><div class="line">                    7566    JONES   20      RESEARCH</div><div class="line">                    7654    MARTIN  30      SALES</div><div class="line">                    7698    BLAKE   30      SALES</div><div class="line">                    7782    CLARK   10      ACCOUNTING</div><div class="line">                    7788    SCOTT   20      RESEARCH</div><div class="line">                    7839    KING    10      ACCOUNTING</div><div class="line">                    7844    TURNER  30      SALES</div><div class="line">                    7876    ADAMS   20      RESEARCH</div><div class="line">                    7900    JAMES   30      SALES</div><div class="line">                    7902    FORD    20      RESEARCH</div><div class="line">                    7934    MILLER  10      ACCOUNTING</div></pre></td></tr></table></figure>
+
+    - 右连接right join：以右边的表为主表
+        - 栗子: 
+         <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> e.empno,e.ename,d.deptno,d.dname <span class="keyword">from</span> emp e <span class="keyword">right</span> <span class="keyword">join</span> dept d <span class="keyword">on</span>  e.deptno=d.deptno;</div><div class="line">        e.empno e.ename d.deptno        d.dname</div><div class="line">    7782    CLARK   10      ACCOUNTING</div><div class="line">    7839    KING    10      ACCOUNTING</div><div class="line">    7934    MILLER  10      ACCOUNTING</div><div class="line">    7369    SMITH   20      RESEARCH</div><div class="line">    7566    JONES   20      RESEARCH</div><div class="line">    7788    SCOTT   20      RESEARCH</div><div class="line">    7876    ADAMS   20      RESEARCH</div><div class="line">    7902    FORD    20      RESEARCH</div><div class="line">    7499    ALLEN   30      SALES</div><div class="line">    7521    WARD    30      SALES</div><div class="line">    7654    MARTIN  30      SALES</div><div class="line">    7698    BLAKE   30      SALES</div><div class="line">    7844    TURNER  30      SALES</div><div class="line">    7900    JAMES   30      SALES</div><div class="line">    NULL    NULL    40      OPERATIONS</div></pre></td></tr></table></figure>
+
+    - 全连接full  join 
+         <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> e.empno,e.ename,d.deptno,d.dname <span class="keyword">from</span> emp e <span class="keyword">full</span> <span class="keyword">join</span> dept d <span class="keyword">on</span>  e.deptno=d.deptno;</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>map join –小表join 大表 a,b</p>
+<ul>
+<li><code>select /* + mapjoin(b) */ a.key,a.value from a join b on a.key=b.key</code></li>
+</ul>
+</li>
+<li><p>Hive中的order by,sort by ,distribute by ,cluster by 的讲解<br>升序(asc)   降序(desc)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In order to change the average load for a reducer (in bytes):</div><div class="line">set hive.exec.reducers.bytes.per.reducer=&lt;number&gt;</div><div class="line">In order to limit the maximum number of reducers:</div><div class="line">set hive.exec.reducers.max=&lt;number&gt;</div><div class="line">In order to set a constant number of reducers:</div><div class="line">set mapreduce.job.reduces=&lt;number&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>order by:对全局数据的排序，只存在一个reduce</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span>  emp <span class="keyword">order</span> <span class="keyword">by</span> empno <span class="keyword">desc</span>; 不写desc (默认就是升序)</div></pre></td></tr></table></figure>
+</li>
+<li><p>sort by 对每一个reduce内部进行排序，全局结果来说并没有</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> mapreduce.job.reduces =<span class="number">3</span>;</div><div class="line"><span class="keyword">insert</span> overwrite <span class="keyword">local</span> <span class="keyword">directory</span> <span class="string">'/opt/hivedata/sortby'</span> <span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">sort</span> <span class="keyword">by</span> empno;</div></pre></td></tr></table></figure>
+</li>
+<li><p>distribute by 分布式排序，类似于mapreduce中的分区功能，对数据进行分区，结合sort by</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">insert</span> overwrite <span class="keyword">local</span> <span class="keyword">directory</span> <span class="string">'/opt/hivedata/distributeby'</span> <span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">distribute</span> <span class="keyword">by</span> deptno <span class="keyword">sort</span> <span class="keyword">by</span> empno;</div><div class="line">    ```	</div><div class="line">4. cluster by 特殊情况 当distribute by 和sort by  修饰同一个字段的时候可以直接使用</div><div class="line">```sql</div><div class="line">    <span class="keyword">insert</span> overwrite <span class="keyword">local</span> <span class="keyword">directory</span> <span class="string">'/opt/hivedata/clusterby'</span> <span class="keyword">select</span> * <span class="keyword">from</span> emp cluster <span class="keyword">by</span> empno;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>hive的窗口和分析函数</p>
+<ul>
+<li>对于分组之后的数据进行处理</li>
+</ul>
+<ol>
+<li><p>查询部门编号10的所有员工，按照薪资进行降序排列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=<span class="number">10</span> <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将每个部门薪资最高的那个人显示在最后一列 max() over()</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> empno,ename,deptno,sal,<span class="keyword">max</span>(sal) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> deptno <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>) <span class="keyword">as</span> max_sal <span class="keyword">from</span> emp;</div><div class="line"></div><div class="line">empno   ename   deptno  sal     max_sal</div><div class="line">7698    BLAKE   30      2850.0  2850.0</div><div class="line">7499    ALLEN   30      1600.0  2850.0</div><div class="line">7844    TURNER  30      1500.0  2850.0</div><div class="line">7521    WARD    30      1250.0  2850.0</div><div class="line">7654    MARTIN  30      1250.0  2850.0</div><div class="line">7900    JAMES   30      950.0   2850.0</div><div class="line">7839    KING    10      5000.0  5000.0</div><div class="line">7782    CLARK   10      2450.0  5000.0</div><div class="line">7934    MILLER  10      1300.0  5000.0</div><div class="line">7788    SCOTT   20      3000.0  3000.0</div><div class="line">7902    FORD    20      3000.0  3000.0</div><div class="line">7566    JONES   20      2975.0  3000.0</div><div class="line">7876    ADAMS   20      1100.0  3000.0</div><div class="line">7369    SMITH   20      800.0   3000.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>将每个部门最后一列显示一个唯一的ID编号</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> empno,ename,deptno,sal,row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> deptno <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>) <span class="keyword">as</span> rn <span class="keyword">from</span> emp;</div><div class="line">       empno   ename   deptno  sal     rn</div><div class="line">       7698    BLAKE   30      2850.0  1</div><div class="line">       7499    ALLEN   30      1600.0  2</div><div class="line">       7844    TURNER  30      1500.0  3</div><div class="line">       7521    WARD    30      1250.0  4</div><div class="line">       7654    MARTIN  30      1250.0  5</div><div class="line">       7900    JAMES   30      950.0   6</div><div class="line"></div><div class="line">       7839    KING    10      5000.0  1</div><div class="line">       7782    CLARK   10      2450.0  2</div><div class="line">       7934    MILLER  10      1300.0  3</div><div class="line"></div><div class="line">       7788    SCOTT   20      3000.0  1</div><div class="line">       7902    FORD    20      3000.0  2</div><div class="line">       7566    JONES   20      2975.0  3</div><div class="line">       7876    ADAMS   20      1100.0  4</div><div class="line">       7369    SMITH   20      800.0   5</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取每个部门薪资最高的前两位</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> empno,ename,deptno,sal <span class="keyword">from</span>(<span class="keyword">select</span> empno,ename,deptno,sal,row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> deptno <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>) <span class="keyword">as</span> rn <span class="keyword">from</span> emp) tmp <span class="keyword">where</span> rn &lt; <span class="number">3</span></div><div class="line">       empno   ename   deptno  sal</div><div class="line">       <span class="number">7698</span>    BLAKE   <span class="number">30</span>      <span class="number">2850.0</span></div><div class="line">       <span class="number">7499</span>    ALLEN   <span class="number">30</span>      <span class="number">1600.0</span></div><div class="line"></div><div class="line">       <span class="number">7839</span>    KING    <span class="number">10</span>      <span class="number">5000.0</span></div><div class="line">       <span class="number">7782</span>    CLARK   <span class="number">10</span>      <span class="number">2450.0</span></div><div class="line"></div><div class="line">       <span class="number">7788</span>    SCOTT   <span class="number">20</span>      <span class="number">3000.0</span></div><div class="line">       <span class="number">7902</span>    FORD    <span class="number">20</span>      <span class="number">3000.0</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>自定义函数</p>
+<ul>
+<li><p>UDF函数(User-Defined-Function) 一进一出;<br>==》转换大小写</p>
+</li>
+<li><p>UDAF函数(User-Defined Aggregation Function) 多进一出；<br>max(),min(),avg()…..</p>
+</li>
+<li><p>UDTF(User-Defined Table-Generation Function) 一进多出;<br>解析IP地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">UDF函数的编写规范：</div><div class="line">	1、自定义函数编写的时候必须要继承一个类，UDF</div><div class="line">	2、必须实现一个或者多个evalucate方法</div><div class="line">	3、该方法必须有返回值</div><div class="line">	4、可以返回null</div><div class="line">	5、建议使用hadoop的数据类型，Text</div><div class="line">	</div><div class="line">编写自定义函数的准备工作</div><div class="line">安装maven，导入hive的jar包，替换仓库。</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -580,7 +621,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
       
         <div class="post-tags">
           
-            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+            <a href="/tags/hive/" rel="tag"># hive</a>
           
         </div>
       
@@ -593,8 +634,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/28/mysql/" rel="next" title="mysql 总结">
-                <i class="fa fa-chevron-left"></i> mysql 总结
+              <a href="/2018/03/12/hive/" rel="next" title="hive总结(一)">
+                <i class="fa fa-chevron-left"></i> hive总结(一)
               </a>
             
           </div>
@@ -602,10 +643,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99"
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/08/wordcount/" rel="prev" title="wordcount">
-                wordcount <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -965,7 +1002,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop-分布式文件系统"><span class="nav-number"></span> <span class="nav-text">Hadoop 分布式文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-自带一个称为hdfs的分布式文件系统，即-Hadoop-Distributed-Filesystem-在非正式文档或旧文档以及配置文件中，有时也简称为DFS-他们指的是一回事。"><span class="nav-number">1.</span> <span class="nav-text">Hadoop 自带一个称为hdfs的分布式文件系统，即 Hadoop Distributed Filesystem. 在非正式文档或旧文档以及配置文件中，有时也简称为DFS,他们指的是一回事。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS的设计"><span class="nav-number">2.</span> <span class="nav-text">HDFS的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS概念"><span class="nav-number">3.</span> <span class="nav-text">HDFS概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据块"><span class="nav-number">4.</span> <span class="nav-text">数据块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对分布式文件系统中的块进行抽象有什么好处"><span class="nav-number">5.</span> <span class="nav-text">对分布式文件系统中的块进行抽象有什么好处?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Namenode-和-DataNode"><span class="nav-number">6.</span> <span class="nav-text">Namenode 和 DataNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#没有namenode-文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？"><span class="nav-number">7.</span> <span class="nav-text">没有namenode,文件系统将无法使用。事实上，如果运行Namenode服务的机器毁坏，文件系统上的所有文件将会丢失，因为我们不知道如何根提datanode的块重建文件。因此，对namencde实现容错非常重要，Hadop为此提供了什么机制？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hive-常用函数及其查询"><span class="nav-number">1.</span> <span class="nav-text">hive 常用函数及其查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hive常用的自带函数及查询"><span class="nav-number">1.1.</span> <span class="nav-text">hive常用的自带函数及查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.2.</span> <span class="nav-text">语法:</span></a></li></ol></li></ol></div>
             
 
           </div>
