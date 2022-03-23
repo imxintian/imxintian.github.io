@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Author on 玉面小飞龙的个人博客</title>
-    <link>/author/</link>
+    <link>blog/author/</link>
     <description>Recent content in Author on 玉面小飞龙的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 26 Jan 2021 10:13:00 +0600</lastBuildDate><atom:link href="/author/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Jan 2021 10:13:00 +0600</lastBuildDate><atom:link href="blog/author/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Henara Colii</title>
-      <link>/author/henara-colii/</link>
+      <link>blog/author/henara-colii/</link>
       <pubDate>Tue, 02 Feb 2021 10:20:19 +0600</pubDate>
       
-      <guid>/author/henara-colii/</guid>
+      <guid>blog/author/henara-colii/</guid>
       <description>social 我是谁？ 我是玉面小飞龙 让鸣人背负的是佐助，还有小樱，大家都太依赖鸣人了，才让他更加受苦，不堪重负。 为什么让我背负这么重，我只是一个小生命，受不起，我过好自己的认得就够了， 别把我推的那么远，现实不是理想，只说这些让就没法活在现实中，最后莫名迷惘，人要疯的。</description>
     </item>
     
