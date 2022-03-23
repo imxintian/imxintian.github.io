@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clock on 玉面小飞龙的个人博客</title>
-    <link>blog/tags/clock/</link>
+    <link>/tags/clock/</link>
     <description>Recent content in Clock on 玉面小飞龙的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 03 Feb 2021 16:56:47 +0600</lastBuildDate><atom:link href="blog/tags/clock/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Feb 2021 16:56:47 +0600</lastBuildDate><atom:link href="/tags/clock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我们恋爱吧</title>
-      <link>blog/blog/post-6/</link>
+      <link>/blog/post-6/</link>
       <pubDate>Wed, 03 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/blog/post-6/</guid>
+      <guid>/blog/post-6/</guid>
       <description>带土：事到如今，也不想狡辩什么，但我想至少走在你们前面，先你们而死。（开路者）
 鸣人：火影是忍着疼痛，走在所有人面前的人， 所以火影绝不可能跨过同伴的尸体， 想当的人没有近道可寻， 当上了火影的人，同样无路可退···
 我是页面7 卡卡西：那个家伙的前进方式，会吸引同伴，要是见他快要跌倒，大家会不由自主想帮他。
@@ -21,10 +21,10 @@
     
     <item>
       <title>我们谈恋爱吧</title>
-      <link>blog/blog/post-2/</link>
+      <link>/blog/post-2/</link>
       <pubDate>Mon, 25 Jan 2021 11:33:57 +0600</pubDate>
       
-      <guid>blog/blog/post-2/</guid>
+      <guid>/blog/post-2/</guid>
       <description>我是页面2 我不知道 你是谁 但我真的喜欢你</description>
     </item>
     

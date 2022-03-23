@@ -2,88 +2,88 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 玉面小飞龙的个人博客</title>
-    <link>blog/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on 玉面小飞龙的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Mar 2022 15:12:17 +0800</lastBuildDate><atom:link href="blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Mar 2022 15:12:17 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Diy</title>
-      <link>blog/tags/diy/</link>
+      <link>/tags/diy/</link>
       <pubDate>Tue, 22 Mar 2022 15:12:17 +0800</pubDate>
       
-      <guid>blog/tags/diy/</guid>
+      <guid>/tags/diy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Toy</title>
-      <link>blog/tags/toy/</link>
+      <link>/tags/toy/</link>
       <pubDate>Tue, 22 Mar 2022 15:12:17 +0800</pubDate>
       
-      <guid>blog/tags/toy/</guid>
+      <guid>/tags/toy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Photography</title>
-      <link>blog/tags/photography/</link>
+      <link>/tags/photography/</link>
       <pubDate>Thu, 04 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/photography/</guid>
+      <guid>/tags/photography/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Alarm</title>
-      <link>blog/tags/alarm/</link>
+      <link>/tags/alarm/</link>
       <pubDate>Wed, 03 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/alarm/</guid>
+      <guid>/tags/alarm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Clock</title>
-      <link>blog/tags/clock/</link>
+      <link>/tags/clock/</link>
       <pubDate>Wed, 03 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/clock/</guid>
+      <guid>/tags/clock/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Balloon</title>
-      <link>blog/tags/balloon/</link>
+      <link>/tags/balloon/</link>
       <pubDate>Tue, 02 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/balloon/</guid>
+      <guid>/tags/balloon/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gas</title>
-      <link>blog/tags/gas/</link>
+      <link>/tags/gas/</link>
       <pubDate>Tue, 02 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/gas/</guid>
+      <guid>/tags/gas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Food</title>
-      <link>blog/tags/food/</link>
+      <link>/tags/food/</link>
       <pubDate>Mon, 25 Jan 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/food/</guid>
+      <guid>/tags/food/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gold</title>
-      <link>blog/tags/gold/</link>
+      <link>/tags/gold/</link>
       <pubDate>Mon, 25 Jan 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/tags/gold/</guid>
+      <guid>/tags/gold/</guid>
       <description></description>
     </item>
     

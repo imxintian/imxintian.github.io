@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Diy on 玉面小飞龙的个人博客</title>
-    <link>blog/tags/diy/</link>
+    <link>/tags/diy/</link>
     <description>Recent content in Diy on 玉面小飞龙的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Mar 2022 15:12:17 +0800</lastBuildDate><atom:link href="blog/tags/diy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Mar 2022 15:12:17 +0800</lastBuildDate><atom:link href="/tags/diy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我喜欢你</title>
-      <link>blog/blog/psot-9/</link>
+      <link>/blog/psot-9/</link>
       <pubDate>Tue, 22 Mar 2022 15:12:17 +0800</pubDate>
       
-      <guid>blog/blog/psot-9/</guid>
+      <guid>/blog/psot-9/</guid>
       <description>我喜欢你 没 没有蜡烛
 就不用勉强庆祝
 没 没想到答案
@@ -25,10 +25,10 @@
     
     <item>
       <title>我们恋爱吧</title>
-      <link>blog/blog/post-8/</link>
+      <link>/blog/post-8/</link>
       <pubDate>Fri, 05 Feb 2021 16:56:47 +0600</pubDate>
       
-      <guid>blog/blog/post-8/</guid>
+      <guid>/blog/post-8/</guid>
       <description>卡卡西：那个家伙的前进方式，会吸引同伴，要是见他快要跌倒，大家会不由自主想帮他。
 2、
 卡卡西：只会卖弄口才而一事无成，不断重复这样的失败。
@@ -39,10 +39,10 @@ Creative Design 卡卡西：那个家伙的前进方式，会吸引同伴，要�
     
     <item>
       <title>我们谈恋爱吧</title>
-      <link>blog/blog/post-3/</link>
+      <link>/blog/post-3/</link>
       <pubDate>Mon, 25 Jan 2021 11:35:57 +0600</pubDate>
       
-      <guid>blog/blog/post-3/</guid>
+      <guid>/blog/post-3/</guid>
       <description>我是页面3 我是玉面小飞龙啊</description>
     </item>
     

@@ -2,103 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>blog/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/tags/diy/</loc>
+    <loc>/tags/diy/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/categories/lifestyle/</loc>
+    <loc>/categories/lifestyle/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/tags/toy/</loc>
+    <loc>/tags/toy/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/blog/psot-9/</loc>
+    <loc>/blog/psot-9/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/</loc>
+    <loc>/</loc>
     <lastmod>2022-03-22T15:12:17+08:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-8/</loc>
+    <loc>/blog/post-8/</loc>
     <lastmod>2021-02-05T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/photography/</loc>
+    <loc>/tags/photography/</loc>
     <lastmod>2021-02-04T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/categories/photography/</loc>
+    <loc>/categories/photography/</loc>
     <lastmod>2021-02-04T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-7/</loc>
+    <loc>/blog/post-7/</loc>
     <lastmod>2021-02-04T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/alarm/</loc>
+    <loc>/tags/alarm/</loc>
     <lastmod>2021-02-03T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/clock/</loc>
+    <loc>/tags/clock/</loc>
     <lastmod>2021-02-03T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-6/</loc>
+    <loc>/blog/post-6/</loc>
     <lastmod>2021-02-03T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/categories/accessories/</loc>
+    <loc>/categories/accessories/</loc>
     <lastmod>2021-02-02T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/balloon/</loc>
+    <loc>/tags/balloon/</loc>
     <lastmod>2021-02-02T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/gas/</loc>
+    <loc>/tags/gas/</loc>
     <lastmod>2021-02-02T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-5/</loc>
+    <loc>/blog/post-5/</loc>
     <lastmod>2021-02-02T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/author/henara-colii/</loc>
+    <loc>/author/henara-colii/</loc>
     <lastmod>2021-02-02T10:20:19+06:00</lastmod>
   </url><url>
-    <loc>blog/author/</loc>
+    <loc>/author/</loc>
     <lastmod>2021-01-26T10:13:00+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-4/</loc>
+    <loc>/blog/post-4/</loc>
     <lastmod>2021-01-25T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/food/</loc>
+    <loc>/tags/food/</loc>
     <lastmod>2021-01-25T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/categories/food/</loc>
+    <loc>/categories/food/</loc>
     <lastmod>2021-01-25T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/tags/gold/</loc>
+    <loc>/tags/gold/</loc>
     <lastmod>2021-01-25T16:56:47+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-3/</loc>
+    <loc>/blog/post-3/</loc>
     <lastmod>2021-01-25T11:35:57+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-2/</loc>
+    <loc>/blog/post-2/</loc>
     <lastmod>2021-01-25T11:33:57+06:00</lastmod>
   </url><url>
-    <loc>blog/blog/post-1/</loc>
+    <loc>/blog/post-1/</loc>
     <lastmod>2021-01-24T18:19:25+06:00</lastmod>
   </url><url>
-    <loc>blog/search/</loc>
+    <loc>/search/</loc>
     <lastmod>2018-09-24T11:07:10+06:00</lastmod>
   </url><url>
-    <loc>blog/about/</loc>
+    <loc>/about/</loc>
   </url><url>
-    <loc>blog/contact/</loc>
+    <loc>/contact/</loc>
   </url><url>
-    <loc>blog/elements/</loc>
+    <loc>/elements/</loc>
   </url><url>
-    <loc>blog/404/</loc>
+    <loc>/404/</loc>
   </url><url>
-    <loc>blog/privacy/</loc>
+    <loc>/privacy/</loc>
   </url><url>
-    <loc>blog/terms-conditions/</loc>
+    <loc>/terms-conditions/</loc>
   </url>
 </urlset>
